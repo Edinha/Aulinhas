@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-38" y="299"/>
         </scene>
-        <!--Seasons-->
+        <!--Shows-->
         <scene sceneID="MRD-gy-3N7">
             <objects>
-                <viewController title="Seasons" id="0a3-Lz-1Sc" customClass="ShowListViewController" customModule="MovileUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Shows" id="0a3-Lz-1Sc" customClass="ShowListViewController" customModule="MovileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wIh-Gg-Qfp"/>
                         <viewControllerLayoutGuide type="bottom" id="Dxr-zy-djt"/>
@@ -55,7 +55,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="136"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-kJ-KKp">
-                                                    <rect key="frame" x="8" y="141" width="28.5" height="14.5"/>
+                                                    <rect key="frame" x="3" y="141" width="28.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -66,6 +66,7 @@
                                         <constraints>
                                             <constraint firstItem="b1d-kJ-KKp" firstAttribute="leading" secondItem="Vyo-4r-tgT" secondAttribute="leadingMargin" constant="18" id="1c2-Uq-H0p"/>
                                             <constraint firstItem="b1d-kJ-KKp" firstAttribute="top" secondItem="Tlh-1p-qXV" secondAttribute="bottom" constant="5" id="5Z5-Ox-RfX"/>
+                                            <constraint firstItem="b1d-kJ-KKp" firstAttribute="leading" secondItem="Vyo-4r-tgT" secondAttribute="leadingMargin" constant="-5" id="IYX-zL-Ly1"/>
                                             <constraint firstItem="b1d-kJ-KKp" firstAttribute="leading" secondItem="Vyo-4r-tgT" secondAttribute="leadingMargin" id="J0Q-0A-75L"/>
                                             <constraint firstItem="Tlh-1p-qXV" firstAttribute="leading" secondItem="Vyo-4r-tgT" secondAttribute="leadingMargin" constant="-8" id="Nt8-AQ-cLL"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="Tlh-1p-qXV" secondAttribute="bottom" constant="26" id="YQG-W2-nlU"/>
@@ -77,6 +78,7 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="1c2-Uq-H0p"/>
+                                                <exclude reference="J0Q-0A-75L"/>
                                                 <exclude reference="ev9-e7-81q"/>
                                             </mask>
                                         </variation>

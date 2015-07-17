@@ -21,7 +21,7 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
     func numberOfSectionsInCollectionView(tableView: UICollectionView) -> Int { return 1}
     
     func collectionView(colView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return shows.count
     }
     
     func collectionView(colView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

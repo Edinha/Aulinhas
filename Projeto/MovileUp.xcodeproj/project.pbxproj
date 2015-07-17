@@ -10,6 +10,7 @@
 		1A1BE55D76C5EDA9CCCD8483 /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = 116FFF6AB7D88AA1E0AFD69A /* LaunchScreen.xib */; };
 		35EF420A294DE5E45A74A0A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F0AD87D81F7C9AAFE84537 /* Foundation.framework */; };
 		4E7D6D5FBD97A92FFC44BC37 /* Pods_unit_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145FD42AA6E2DC6B38E8E165 /* Pods_unit_tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		545F00F0DF429DC13CF374BB /* Pods_MovileUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BAB0005DD54DEC32170BDB /* Pods_MovileUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		814EFD6F1B5974AA00E00C76 /* SeasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814EFD6E1B5974AA00E00C76 /* SeasonCell.swift */; };
 		814EFD711B59758000E00C76 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814EFD701B59758000E00C76 /* Season.swift */; };
 		814EFD731B59767200E00C76 /* SeasonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814EFD721B59767200E00C76 /* SeasonListViewController.swift */; };
@@ -43,9 +44,11 @@
 		116FFF6AB7D88AA1E0AFD69A /* LaunchScreen.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		145FD42AA6E2DC6B38E8E165 /* Pods_unit_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_unit_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3618DCADB0E67057A6144A53 /* MovileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E6F5C316676C3975F870681 /* Pods-MovileUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovileUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovileUp/Pods-MovileUp.release.xcconfig"; sourceTree = "<group>"; };
 		687D6A0569E162BA237B5743 /* Storyboards.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		6FED20323212223021100578 /* Pods-unit_tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-unit_tests/Pods-unit_tests.release.xcconfig"; sourceTree = "<group>"; };
 		71B12C1D7CFC8552641EB829 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72BAB0005DD54DEC32170BDB /* Pods_MovileUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovileUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		814EFD6E1B5974AA00E00C76 /* SeasonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonCell.swift; sourceTree = "<group>"; };
 		814EFD701B59758000E00C76 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		814EFD721B59767200E00C76 /* SeasonListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonListViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		BED504A6D90C0FFFE28CC3EE /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		CBC3EC56EBB183BCC7AE9536 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D027BF6E9F6DFC3F61110479 /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB8CD898FE2CC77C0CCED986 /* Pods-MovileUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovileUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovileUp/Pods-MovileUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35EF420A294DE5E45A74A0A7 /* Foundation.framework in Frameworks */,
+				545F00F0DF429DC13CF374BB /* Pods_MovileUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +155,8 @@
 			children = (
 				6FED20323212223021100578 /* Pods-unit_tests.release.xcconfig */,
 				B05744733574A614A0BC24C4 /* Pods-unit_tests.debug.xcconfig */,
+				4E6F5C316676C3975F870681 /* Pods-MovileUp.release.xcconfig */,
+				FB8CD898FE2CC77C0CCED986 /* Pods-MovileUp.debug.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 			children = (
 				977260F0CF2C51676FCADC0E /* iOS */,
 				145FD42AA6E2DC6B38E8E165 /* Pods_unit_tests.framework */,
+				72BAB0005DD54DEC32170BDB /* Pods_MovileUp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -279,12 +287,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B651603E67FE3CDB7614CEF8 /* Build configuration list for PBXNativeTarget "MovileUp" */;
 			buildPhases = (
+				E24EC3CF14E00B7D6F85187A /* Check Pods Manifest.lock */,
 				3B7491691B24781F385095F1 /* Generate Storyboards.swift (Natalie) */,
 				02BB5891E7A9F35C15B54851 /* Sources */,
 				051A3FF2B04CD981DE7E17DB /* Frameworks */,
 				911404C4E75769AEFF6D8346 /* Resources */,
 				EEDEBE84075251B9B779FBAF /* Warn for TODO and FIXME comments */,
 				8EE15BA5B29CE1CF1548176C /* Set version number */,
+				18DE0632009E730E326D00DD /* Embed Pods Frameworks */,
+				0D147906C142A81FE0EF367E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -363,6 +374,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0D147906C142A81FE0EF367E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovileUp/Pods-MovileUp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18DE0632009E730E326D00DD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovileUp/Pods-MovileUp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3B7491691B24781F385095F1 /* Generate Storyboards.swift (Natalie) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -436,6 +477,21 @@
 			shellPath = /bin/sh;
 			shellScript = "git=$(sh /etc/profile; which git)\ngit_release_version=$(\"$git\" describe --tags --always --abbrev=0)\nnumber_of_commits=$(\"$git\" rev-list master | wc -l | tr -d ' ')\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\ndsym_plist=\"$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME/Contents/Info.plist\"\n\nfor plist in \"$target_plist\" \"$dsym_plist\"; do\n  if [ -f \"$plist\" ]; then\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $number_of_commits\" \"$plist\"\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${git_release_version#*v}\" \"$plist\"\n  fi\ndone\n";
 		};
+		E24EC3CF14E00B7D6F85187A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		EEDEBE84075251B9B779FBAF /* Warn for TODO and FIXME comments */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -507,6 +563,7 @@
 /* Begin XCBuildConfiguration section */
 		573574905371FEBEADCAF322 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E6F5C316676C3975F870681 /* Pods-MovileUp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
@@ -625,6 +682,7 @@
 		};
 		B857A1526CD1CDB40E5770EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB8CD898FE2CC77C0CCED986 /* Pods-MovileUp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;

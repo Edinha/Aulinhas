@@ -4,6 +4,41 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-MovileUp-Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileUp-Box.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileUp-ISO8601DateFormatter.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileUp-Result.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileUp-TraktModels-TraktModels.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileUp-TraktModels.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileUp.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-unit_tests-Nimble.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6DD27269B5CF569CC665F483</key>
+		<key>1FF2B9F69C963EE47194EFCD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F52330605EFB9C5D9AF8095F</key>
+		<key>20505FF832147E675FFC9E1C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE706692F8EBD8A50FC7465B</key>
+		<key>2E69DB50A4CB08E9BC6B65F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CFA4B8DE304A30D0F08457B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9A9A7B1829D871D221FC345C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB7A414FAA2BD3CD3346C9E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C72369F4B600FCD566E45FBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D19F582EA6A484B1BD857178</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D409B2F7F48DEC16291CBFD0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB6CC2283E4ED60D49B43512</key>
 		<dict>
 			<key>primary</key>
 			<true/>

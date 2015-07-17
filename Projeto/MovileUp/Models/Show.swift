@@ -15,9 +15,9 @@ struct Show {
     
     static func loadShow() -> [Show]{
         
-        let s = [("clock", "Clock"), ("home-screen", "Screen"),
-            ("like-heart-on", "Heart"), ("poster-mini", "Poster Mini"),
-            ("poster", "Poster"), ("bg", "Background")]
+        let s = [("poster", "Game of Thrones"), ("poster", "Breaking Bad"),
+            ("poster", "Heart of Gold"), ("poster", "Dexter"),
+            ("poster", "Arrow"), ("poster", "Daredevil")]
         
         
         return s.map{Show(url: $0.0, name: $0.1)}
