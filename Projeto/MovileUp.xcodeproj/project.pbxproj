@@ -10,6 +10,9 @@
 		1A1BE55D76C5EDA9CCCD8483 /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = 116FFF6AB7D88AA1E0AFD69A /* LaunchScreen.xib */; };
 		35EF420A294DE5E45A74A0A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F0AD87D81F7C9AAFE84537 /* Foundation.framework */; };
 		4E7D6D5FBD97A92FFC44BC37 /* Pods_unit_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145FD42AA6E2DC6B38E8E165 /* Pods_unit_tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		814EFD6F1B5974AA00E00C76 /* SeasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814EFD6E1B5974AA00E00C76 /* SeasonCell.swift */; };
+		814EFD711B59758000E00C76 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814EFD701B59758000E00C76 /* Season.swift */; };
+		814EFD731B59767200E00C76 /* SeasonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814EFD721B59767200E00C76 /* SeasonListViewController.swift */; };
 		81B423AD1B5828A400A2D896 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B423AC1B5828A400A2D896 /* EpisodeViewController.swift */; };
 		81B423AF1B582F5F00A2D896 /* ListEpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B423AE1B582F5F00A2D896 /* ListEpisodesViewController.swift */; };
 		81B423B11B5833B600A2D896 /* episodeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B423B01B5833B600A2D896 /* episodeTableCell.swift */; };
@@ -40,6 +43,9 @@
 		687D6A0569E162BA237B5743 /* Storyboards.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		6FED20323212223021100578 /* Pods-unit_tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-unit_tests/Pods-unit_tests.release.xcconfig"; sourceTree = "<group>"; };
 		71B12C1D7CFC8552641EB829 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		814EFD6E1B5974AA00E00C76 /* SeasonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonCell.swift; sourceTree = "<group>"; };
+		814EFD701B59758000E00C76 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		814EFD721B59767200E00C76 /* SeasonListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonListViewController.swift; sourceTree = "<group>"; };
 		81B423AC1B5828A400A2D896 /* EpisodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		81B423AE1B582F5F00A2D896 /* ListEpisodesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEpisodesViewController.swift; sourceTree = "<group>"; };
 		81B423B01B5833B600A2D896 /* episodeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = episodeTableCell.swift; sourceTree = "<group>"; };
@@ -111,6 +117,8 @@
 			children = (
 				81B423B01B5833B600A2D896 /* episodeTableCell.swift */,
 				81B423B21B58376F00A2D896 /* Episode.swift */,
+				814EFD6E1B5974AA00E00C76 /* SeasonCell.swift */,
+				814EFD701B59758000E00C76 /* Season.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +216,7 @@
 				81B423AC1B5828A400A2D896 /* EpisodeViewController.swift */,
 				81B423AE1B582F5F00A2D896 /* ListEpisodesViewController.swift */,
 				81B423B41B58387500A2D896 /* EpisodesTableView.swift */,
+				814EFD721B59767200E00C76 /* SeasonListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -443,11 +452,14 @@
 				81BAE87A1B56E90100290D72 /* CustomNavigationController.swift in Sources */,
 				C3734069B2E6CD38DBE3548B /* Storyboards.swift in Sources */,
 				81B423B51B58387500A2D896 /* EpisodesTableView.swift in Sources */,
+				814EFD711B59758000E00C76 /* Season.swift in Sources */,
+				814EFD6F1B5974AA00E00C76 /* SeasonCell.swift in Sources */,
 				81BAE8761B56DA7800290D72 /* Main.storyboard in Sources */,
 				81B423B11B5833B600A2D896 /* episodeTableCell.swift in Sources */,
 				81B423AD1B5828A400A2D896 /* EpisodeViewController.swift in Sources */,
 				81B423AF1B582F5F00A2D896 /* ListEpisodesViewController.swift in Sources */,
 				81B423B31B58376F00A2D896 /* Episode.swift in Sources */,
+				814EFD731B59767200E00C76 /* SeasonListViewController.swift in Sources */,
 				1A1BE55D76C5EDA9CCCD8483 /* LaunchScreen.xib in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
