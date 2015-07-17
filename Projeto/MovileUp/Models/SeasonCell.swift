@@ -10,15 +10,11 @@ import UIKit
 
 class SeasonCell : UICollectionViewCell {
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
-    @IBOutlet private weak var seasonImage: UIImageView!
-    
-    
-    @IBOutlet private weak var seasonName: UILabel!
-    
-    func loadCell(s : Season) {
-     
-        seasonImage.image = UIImage(named: s.url)
-        seasonName.text = s.name
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 }

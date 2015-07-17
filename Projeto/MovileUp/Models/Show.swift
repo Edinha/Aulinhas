@@ -1,0 +1,25 @@
+//
+//  Show.swift
+//  MovileUp
+//
+//  Created by iOS on 7/17/15.
+//  Copyright (c) 2015 Edinha's. All rights reserved.
+//
+
+import Foundation
+
+struct Show {
+    
+    let url : String
+    let name: String
+    
+    static func loadShow() -> [Show]{
+        
+        let s = [("clock", "Clock"), ("home-screen", "Screen"),
+            ("like-heart-on", "Heart"), ("poster-mini", "Poster Mini"),
+            ("poster", "Poster"), ("bg", "Background")]
+        
+        
+        return s.map{Show(url: $0.0, name: $0.1)}
+    }
+}

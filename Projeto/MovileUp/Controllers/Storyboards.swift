@@ -167,15 +167,15 @@ extension UITableView {
 
 //MARK: - CustomNavigationController
 
-//MARK: - SeasonListViewController
-extension SeasonListViewController { 
+//MARK: - ShowListViewController
+extension ShowListViewController { 
 
     enum Reusable: String, Printable, ReusableViewProtocol {
-        case Season = "Season"
+        case Show = "Show"
 
         var kind: ReusableKind? {
             switch (self) {
-            case Season:
+            case Show:
                 return ReusableKind(rawValue: "collectionViewCell")
             default:
                 preconditionFailure("Invalid value")
@@ -185,8 +185,8 @@ extension SeasonListViewController {
 
         var viewType: UIView.Type? {
             switch (self) {
-            case Season:
-                return SeasonCell.self
+            case Show:
+                return ShowCell.self
             default:
                 return nil
             }

@@ -37,10 +37,8 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            
-            let iden = Reusable.Episode.identifier!
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
 
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
             cell!.backgroundColor = UIColor.blueColor()
             
             let title: String = episodes[indexPath.row].episode

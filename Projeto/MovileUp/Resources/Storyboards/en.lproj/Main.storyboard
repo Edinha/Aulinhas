@@ -25,7 +25,7 @@
         <!--Seasons-->
         <scene sceneID="MRD-gy-3N7">
             <objects>
-                <viewController title="Seasons" id="0a3-Lz-1Sc" customClass="SeasonListViewController" customModule="MovileUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Seasons" id="0a3-Lz-1Sc" customClass="ShowListViewController" customModule="MovileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wIh-Gg-Qfp"/>
                         <viewControllerLayoutGuide type="bottom" id="Dxr-zy-djt"/>
@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kWO-s6-tf9">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kWO-s6-tf9">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QI2-Ix-DfM">
@@ -44,7 +44,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Season" id="Vyo-4r-tgT" customClass="SeasonCell" customModule="MovileUp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Show" id="Vyo-4r-tgT" customClass="ShowCell" customModule="MovileUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -81,8 +81,8 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <outlet property="seasonImage" destination="Tlh-1p-qXV" id="FxO-mY-Alh"/>
-                                            <outlet property="seasonName" destination="b1d-kJ-KKp" id="5pL-B2-uUk"/>
+                                            <outlet property="showImage" destination="Tlh-1p-qXV" id="YhY-nC-hKJ"/>
+                                            <outlet property="showName" destination="b1d-kJ-KKp" id="JMS-WU-SP8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -96,14 +96,14 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="kWO-s6-tf9" secondAttribute="trailing" constant="-16" id="BTb-UP-Z1n"/>
                             <constraint firstItem="kWO-s6-tf9" firstAttribute="leading" secondItem="vKf-Ec-vA2" secondAttribute="leadingMargin" constant="-16" id="cU7-gQ-Hy7"/>
-                            <constraint firstItem="kWO-s6-tf9" firstAttribute="top" secondItem="wIh-Gg-Qfp" secondAttribute="bottom" constant="-20" id="hEW-eE-irt"/>
+                            <constraint firstItem="kWO-s6-tf9" firstAttribute="top" secondItem="wIh-Gg-Qfp" secondAttribute="bottom" constant="-64" id="hEW-eE-irt"/>
                             <constraint firstItem="Dxr-zy-djt" firstAttribute="top" secondItem="kWO-s6-tf9" secondAttribute="bottom" id="nb0-kD-rwQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Seasons" id="LuP-HT-X7q"/>
+                    <navigationItem key="navigationItem" title="Shows" id="LuP-HT-X7q"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="collection" destination="kWO-s6-tf9" id="seF-0Q-Ldb"/>
+                        <outlet property="collectionView" destination="kWO-s6-tf9" id="kop-iG-P0m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDU-yy-RdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,40 +122,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="pHb-A3-M96">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="pHb-A3-M96">
                                 <rect key="frame" x="11" y="280" width="38" height="34"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNd-OU-ngt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNd-OU-ngt">
                                 <rect key="frame" x="67" y="274" width="34.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Canal" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHE-vd-phB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Canal" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHE-vd-phB">
                                 <rect key="frame" x="67" y="292" width="37" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFh-zy-IkR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFh-zy-IkR">
                                 <rect key="frame" x="13" y="336" width="43.5" height="13"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
                                 <color key="textColor" red="0.95686274509803915" green="0.50196078431372548" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg-overlay" translatesAutoresizingMaskIntoConstraints="NO" id="XS2-sn-JRg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-overlay" translatesAutoresizingMaskIntoConstraints="NO" id="XS2-sn-JRg">
                                 <rect key="frame" x="0.0" y="64" width="320" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="msA-ry-BgH"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Titulo do episodio sadasdsdasdasdasd" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvY-Bd-qAI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo do episodio sadasdsdasdasdasd" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvY-Bd-qAI">
                                 <rect key="frame" x="13" y="205" width="161" height="42.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="waW-gn-TSf">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waW-gn-TSf">
                                 <rect key="frame" x="16" y="359" width="294" height="192"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -175,11 +175,11 @@ As well as being a fearless warrior, Ragnar embodies the Norse traditions of dev
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="waW-gn-TSf" firstAttribute="top" secondItem="7UX-Gd-l7l" secondAttribute="bottom" constant="295" id="0yz-Lm-Flr"/>
-                            <constraint firstItem="VFh-zy-IkR" firstAttribute="top" secondItem="7UX-Gd-l7l" secondAttribute="bottom" constant="272" id="1NI-Km-Dvg"/>
+                            <constraint firstItem="VFh-zy-IkR" firstAttribute="top" secondItem="7UX-Gd-l7l" secondAttribute="bottom" constant="316" id="1NI-Km-Dvg"/>
                             <constraint firstItem="VFh-zy-IkR" firstAttribute="leading" secondItem="7fR-fm-EEK" secondAttribute="leadingMargin" constant="-3" id="670-yU-dLC"/>
                             <constraint firstItem="XS2-sn-JRg" firstAttribute="leading" secondItem="7fR-fm-EEK" secondAttribute="leadingMargin" constant="-16" id="6SN-tB-ccZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="waW-gn-TSf" secondAttribute="trailing" constant="-6" id="7YR-FF-zu3"/>
-                            <constraint firstItem="waW-gn-TSf" firstAttribute="top" secondItem="7UX-Gd-l7l" secondAttribute="bottom" constant="295" id="90u-91-H5g"/>
+                            <constraint firstItem="waW-gn-TSf" firstAttribute="top" secondItem="7UX-Gd-l7l" secondAttribute="bottom" constant="339" id="90u-91-H5g"/>
                             <constraint firstItem="WNd-OU-ngt" firstAttribute="leading" secondItem="pHb-A3-M96" secondAttribute="trailing" constant="18" id="9qI-Ao-n6J"/>
                             <constraint firstItem="waW-gn-TSf" firstAttribute="leading" secondItem="7fR-fm-EEK" secondAttribute="leadingMargin" id="BJF-nX-oIf"/>
                             <constraint firstItem="WNd-OU-ngt" firstAttribute="top" secondItem="XS2-sn-JRg" secondAttribute="bottom" constant="10" id="CZI-yo-RvP"/>
@@ -188,8 +188,8 @@ As well as being a fearless warrior, Ragnar embodies the Norse traditions of dev
                             <constraint firstAttribute="trailingMargin" secondItem="waW-gn-TSf" secondAttribute="trailing" constant="-6" id="RW6-1k-Ccg"/>
                             <constraint firstItem="EHE-vd-phB" firstAttribute="leading" secondItem="7fR-fm-EEK" secondAttribute="leadingMargin" constant="51" id="Rfe-T2-0yM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="waW-gn-TSf" secondAttribute="trailing" constant="-6" id="SHS-7b-hh1"/>
-                            <constraint firstItem="EHE-vd-phB" firstAttribute="top" secondItem="7UX-Gd-l7l" secondAttribute="bottom" constant="228" id="V74-ZN-qWo"/>
-                            <constraint firstItem="XS2-sn-JRg" firstAttribute="top" secondItem="7UX-Gd-l7l" secondAttribute="bottom" id="Zx1-eU-P6y"/>
+                            <constraint firstItem="EHE-vd-phB" firstAttribute="top" secondItem="7UX-Gd-l7l" secondAttribute="bottom" constant="272" id="V74-ZN-qWo"/>
+                            <constraint firstItem="XS2-sn-JRg" firstAttribute="top" secondItem="7UX-Gd-l7l" secondAttribute="bottom" constant="44" id="Zx1-eU-P6y"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="KvY-Bd-qAI" secondAttribute="trailing" id="aDg-Tm-M5V"/>
                             <constraint firstItem="KvY-Bd-qAI" firstAttribute="leading" secondItem="7fR-fm-EEK" secondAttribute="leadingMargin" constant="-3" id="b8X-vZ-QG0"/>
                             <constraint firstItem="WNd-OU-ngt" firstAttribute="leading" secondItem="7fR-fm-EEK" secondAttribute="leadingMargin" constant="51" id="fzG-m7-AR8"/>
@@ -241,7 +241,7 @@ As well as being a fearless warrior, Ragnar embodies the Norse traditions of dev
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fde-R6-bnx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fde-R6-bnx">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -287,7 +287,7 @@ As well as being a fearless warrior, Ragnar embodies the Norse traditions of dev
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Fde-R6-bnx" secondAttribute="trailing" constant="-16" id="4xd-d7-bLA"/>
                             <constraint firstItem="HqE-lK-rel" firstAttribute="top" secondItem="Fde-R6-bnx" secondAttribute="bottom" id="EIU-un-2dS"/>
-                            <constraint firstItem="Fde-R6-bnx" firstAttribute="top" secondItem="MME-ht-PKl" secondAttribute="bottom" constant="-64" id="Eov-n6-Lqe"/>
+                            <constraint firstItem="Fde-R6-bnx" firstAttribute="top" secondItem="MME-ht-PKl" secondAttribute="bottom" constant="-20" id="Eov-n6-Lqe"/>
                             <constraint firstItem="Fde-R6-bnx" firstAttribute="leading" secondItem="z3d-Xo-Yh0" secondAttribute="leadingMargin" constant="-16" id="bqr-8t-dE1"/>
                         </constraints>
                     </view>
