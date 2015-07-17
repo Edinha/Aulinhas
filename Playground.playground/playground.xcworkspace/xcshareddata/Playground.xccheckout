@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>95D22289-7EA4-41E5-B2BE-B3C70440648C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Playground</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4C3A1DB171A4D8C00DF32608C462564E236A1544</key>
+		<string>https://github.com/Edinha/Aulinhas.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Playground.playground</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4C3A1DB171A4D8C00DF32608C462564E236A1544</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Edinha/Aulinhas.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4C3A1DB171A4D8C00DF32608C462564E236A1544</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4C3A1DB171A4D8C00DF32608C462564E236A1544</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Aulinhas</string>
+		</dict>
+	</array>
+</dict>
+</plist>
