@@ -1,0 +1,51 @@
+root
+niresh
+
+struct Id {
+	
+	let trakt : Int
+	let slug  : String?
+	let tvdb  : Int?
+	let imdb  : String?
+	let tmdb  : Int?
+	let tvrage: Int?
+}
+
+struct Image {
+	let full   : String? //NSURL
+	let medium : String?
+	let thumb  : String?
+}
+
+struct Show {
+	let title : String
+	let year  : Int
+	let id    : Id
+	
+	let overview    : String?
+	let first_aired : NSDate?
+
+    let runtime : Int?
+    let certification : String?
+    let network : String?
+    let country : String?
+    let updated : String?
+    let trailer : NSURL?
+    let homepage: NSURL?
+    let status  : String?
+    let rating  : Int?  //deve ser float, mas
+    let votes   : Int?
+    let language: String?
+    let translations : [String]?
+    let genres : [String]?
+    let episodes : Int?
+
+    //imagens
+
+    let fanart : Image?
+    let cleart : Image?
+    let poster : Image?
+    let banner : Image?
+    let thumb  : Image?
+
+}
