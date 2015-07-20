@@ -16,13 +16,14 @@ class EntryListViewController : UIViewController ,
     
     let entries:[Entry] = Feed.loadEntrys()!
     
-    //var
+    var fav: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 130.0
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,21 +43,75 @@ class EntryListViewController : UIViewController ,
         
         cell.loadEntry(entries[indexPath.row])
         
+        for f in fav {
+            if f == indexPath.row{
+                cell.backgroundColor = UIColor.blueColor()
+                break
+            }
+        }
+        
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        //let cell = tableView.cellForRowAtIndexPath(indexPath)
-
-        //UIApplication.sharedApplication().openURL(entries[indexPath.row].link)
+        UIApplication.sharedApplication().openURL(entries[indexPath.row].link)
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         //let cell = tableView.cellForRowAtIndexPath(indexPath)
         //cell!.backgroundColor = UIColor.whiteColor()
-
     }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
+     
+        
+        var favorite = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Favorites" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            
+            let favCell = UIAlertController(title: nil, message: "Added to favorites", preferredStyle: .ActionSheet)
+            let allert = UIAlertAction(title: "Oookay", style: UIAlertActionStyle.Default, handler: nil)
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            cell!.backgroundColor = UIColor.blueColor()
+            self.fav.append(indexPath.row)
+            
+            favCell.addAction(allert)
+            self.presentViewController(favCell, animated: true, completion: nil)
+        })
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
+        if cell?.backgroundColor == UIColor.blueColor() {
+            var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Favorites" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            
+                let cell = tableView.cellForRowAtIndexPath(indexPath)
+                cell?.backgroundColor = UIColor.whiteColor()
+                
+                let undoFav = UIAlertController(title: nil, message: "Removed from favorites", preferredStyle: .ActionSheet)
+                let allert = UIAlertAction(title: "Done ;-; ", style: UIAlertActionStyle.Default, handler: nil)
+            
+                for f in self.fav {
+                    if f == indexPath.row {
+                        for var i = self.fav.count-1; i > f; i-- {
+                            self.fav[i-1] = self.fav[i]
+                        }
+                    }
+                }
+                
+                undoFav.addAction(allert)
+                self.presentViewController(undoFav, animated: true, completion: nil)
+            })
+            
+            return [favorite, undo]
+        }
+        
+        return [favorite]
+    }
+    
+    
+    
 }

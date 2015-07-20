@@ -21,7 +21,7 @@ struct Feed {
     let responseDetails : String?
     let responseStatus  : Int?
     
-    static func loadEntrys() -> [Entry]?{ //static func decode(j : AnyObject?) -> Entry? {
+    static func loadEntrys() -> [Entry]?{
         
         let path: String = NSBundle.mainBundle().pathForResource("entry", ofType: "json")!
         
