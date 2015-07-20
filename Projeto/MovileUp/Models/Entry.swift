@@ -21,13 +21,12 @@ struct Entry {
     static func decode(j : AnyObject?) -> Entry? {
         
         if let dic = j as? NSDictionary {
-        //let publishedDate : NSDate
-        //descobrir como faz isso aqui depois
+        
             let dateString = dic["publishedDate"] as! String
             let dateFormatter =  NSDateFormatter()
             dateFormatter.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
             let date = dateFormatter.dateFromString(dateString)
-            
+
             let t = dic["title"] as! String
             let l = NSURL(string: (dic["link"] as? String)!)
             

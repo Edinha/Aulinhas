@@ -23,16 +23,27 @@ class EntryCell : UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.backgroundColor = UIColor.whiteColor()
+        self.title.font   = UIFont(name: "Helvetica-Light", size:16)
+        self.content.font = UIFont(name: "Helvetica-Light", size:14)
     }
     
     func loadEntry(e : Entry) {
         
+        //let today = [[NSCalendar currentCalendar] isDateInToday: &e.publishedDate]
+        let today  = NSDate()
+        
+        // mudar o if pra saber se e hoje
+        //if (e.publishedDate == today) {
+            self.title.font   = UIFont(name: "Helvetica-Bold", size:16)
+            self.content.font = UIFont(name: "Helvetica-Bold", size:14)
+        //}
+        
         self.title.text = e.title
-        
         let c = split (e.contentSnippet) { $0 == "\n"}
-        
         self.content.text = c[0]
-        
+    }
+    
+    func boldContents() {
         
     }
 }

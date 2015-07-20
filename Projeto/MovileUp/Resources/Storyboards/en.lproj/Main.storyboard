@@ -50,8 +50,8 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfi-jg-ZhY">
-                                                    <rect key="frame" x="8" y="14" width="33" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfi-jg-ZhY">
+                                                    <rect key="frame" x="8" y="18" width="33" height="17"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -62,8 +62,17 @@
                                                 <constraint firstItem="lfi-jg-ZhY" firstAttribute="top" secondItem="ocF-BG-F4L" secondAttribute="bottom" constant="-6.5" id="4FA-ld-YBX"/>
                                                 <constraint firstItem="ocF-BG-F4L" firstAttribute="leading" secondItem="ZSV-gu-11l" secondAttribute="leadingMargin" id="75W-bU-q3w"/>
                                                 <constraint firstItem="ocF-BG-F4L" firstAttribute="top" secondItem="ZSV-gu-11l" secondAttribute="topMargin" constant="-8" id="Obc-xy-VfH"/>
+                                                <constraint firstItem="lfi-jg-ZhY" firstAttribute="top" secondItem="ocF-BG-F4L" secondAttribute="bottom" constant="-1" id="QBX-EG-7Rh"/>
+                                                <constraint firstItem="lfi-jg-ZhY" firstAttribute="top" secondItem="ocF-BG-F4L" secondAttribute="bottom" constant="7" id="fOD-xD-p4g"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="lfi-jg-ZhY" secondAttribute="trailing" id="kFi-C7-nBE"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="lfi-jg-ZhY" secondAttribute="bottom" constant="0.5" id="phN-jp-fxh"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="4FA-ld-YBX"/>
+                                                    <exclude reference="fOD-xD-p4g"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="content" destination="lfi-jg-ZhY" id="H7a-gR-eud"/>
@@ -85,7 +94,7 @@
                             <constraint firstItem="cIS-tI-xCH" firstAttribute="top" secondItem="iTv-BX-QHJ" secondAttribute="bottom" constant="-64" id="eh6-OF-H5M"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6AM-0p-UsJ"/>
+                    <navigationItem key="navigationItem" title="Entries :P" id="6AM-0p-UsJ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="cIS-tI-xCH" id="Eh6-zZ-fjK"/>
