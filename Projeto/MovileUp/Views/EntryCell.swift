@@ -10,7 +10,6 @@ import UIKit
 
 class EntryCell : UITableViewCell {
     
-    
     @IBOutlet private weak var title: UILabel!
     
     @IBOutlet private weak var content: UILabel!
@@ -29,14 +28,12 @@ class EntryCell : UITableViewCell {
     
     func loadEntry(e : Entry) {
         
-        //let today = [[NSCalendar currentCalendar] isDateInToday: &e.publishedDate]
-        let today  = NSDate()
+        let cal = NSCalendar.currentCalendar()
         
-        // mudar o if pra saber se e hoje
-        //if (e.publishedDate == today) {
+        if cal.isDateInToday(e.publishedDate) {
             self.title.font   = UIFont(name: "Helvetica-Bold", size:16)
             self.content.font = UIFont(name: "Helvetica-Bold", size:14)
-        //}
+        }
         
         self.title.text = e.title
         let c = split (e.contentSnippet) { $0 == "\n"}

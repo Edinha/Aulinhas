@@ -50,8 +50,7 @@ class EntryListViewController : UIViewController ,
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         //let cell = tableView.cellForRowAtIndexPath(indexPath)
-        //cell!.boldContents()
-        
+
         //UIApplication.sharedApplication().openURL(entries[indexPath.row].link)
     }
     

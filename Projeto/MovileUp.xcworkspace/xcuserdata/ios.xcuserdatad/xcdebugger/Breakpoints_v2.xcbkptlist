@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/Models/Entry.swift"
-            timestampString = "459108756.94208"
+            timestampString = "459115284.072212"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "decode(_:)"
             landmarkType = "5">
          </BreakpointContent>
