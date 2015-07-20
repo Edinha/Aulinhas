@@ -167,6 +167,38 @@ extension UITableView {
 
 //MARK: - CustomNavigationController
 
+//MARK: - EntryListViewController
+extension EntryListViewController { 
+
+    enum Reusable: String, Printable, ReusableViewProtocol {
+        case Entry = "Entry"
+
+        var kind: ReusableKind? {
+            switch (self) {
+            case Entry:
+                return ReusableKind(rawValue: "tableViewCell")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var viewType: UIView.Type? {
+            switch (self) {
+            case Entry:
+                return EntryCell.self
+            default:
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
+
+
 //MARK: - ShowListViewController
 extension ShowListViewController { 
 
