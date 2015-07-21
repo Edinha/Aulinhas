@@ -14,7 +14,7 @@ class EntryListViewController : UIViewController ,
 
     @IBOutlet private weak var tableView: UITableView!
     
-    let entries:[Entry] = Feed.loadEntrys()!
+    let entries:[Entry] = Entry.loadEntrys()!
     
     var fav: Set<Int> = []
     
