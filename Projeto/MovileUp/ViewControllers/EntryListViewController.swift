@@ -16,7 +16,8 @@ class EntryListViewController : UIViewController ,
     
     let entries:[Entry] = Feed.loadEntrys()!
     
-    var fav: [Int] = []
+    //var fav: [Int] = []
+    var fav: Set<Int> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +44,15 @@ class EntryListViewController : UIViewController ,
         
         cell.loadEntry(entries[indexPath.row])
         
-        for f in fav {
+        /*for f in fav {
             if f == indexPath.row{
                 cell.backgroundColor = UIColor.blueColor()
                 break
             }
+        } */
+        
+        if fav.contains(indexPath.row) {
+            cell.backgroundColor = UIColor.blueColor()
         }
         
         return cell
@@ -77,16 +82,14 @@ class EntryListViewController : UIViewController ,
             
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             cell!.backgroundColor = UIColor.blueColor()
-            self.fav.append(indexPath.row)
+            self.fav.insert(indexPath.row)
             
             favCell.addAction(allert)
             self.presentViewController(favCell, animated: true, completion: nil)
         })
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        
-        if cell?.backgroundColor == UIColor.blueColor() {
-            var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Favorites" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        if fav.contains(indexPath.row){
+            var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Remove" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
                 cell?.backgroundColor = UIColor.whiteColor()
@@ -94,13 +97,7 @@ class EntryListViewController : UIViewController ,
                 let undoFav = UIAlertController(title: nil, message: "Removed from favorites", preferredStyle: .ActionSheet)
                 let allert = UIAlertAction(title: "Done ;-; ", style: UIAlertActionStyle.Default, handler: nil)
             
-                for f in self.fav {
-                    if f == indexPath.row {
-                        for var i = self.fav.count-1; i > f; i-- {
-                            self.fav[i-1] = self.fav[i]
-                        }
-                    }
-                }
+                self.fav.remove(indexPath.row)
                 
                 undoFav.addAction(allert)
                 self.presentViewController(undoFav, animated: true, completion: nil)
