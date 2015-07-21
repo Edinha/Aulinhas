@@ -81,7 +81,7 @@ UITableViewDelegate, UITableViewDataSource {
         }
         
         if fav.contains(indexPath.row){
-            var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Unfavorite") { action, indexPath in
+            var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Remove") { action, indexPath in
                 
                 let undoFav = UIAlertController(title: nil, message: "Removed from favorites", preferredStyle: .ActionSheet)
                 let allert = UIAlertAction(title: "Done ;-; ", style: UIAlertActionStyle.Default, handler: nil)

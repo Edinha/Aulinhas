@@ -28,20 +28,18 @@ struct Entry {
     
     static func decode(j : AnyObject?) -> Entry? {
         
-        if let dic = j as? NSDictionary {
+        if let dic = j as? NSDictionary,
+           dateString = dic["publishedDate"] as? String,
+           date = dateFormatter.dateFromString(dateString),
+           t = dic["title"] as? String,
+           url = dic["link"] as? String,
+           l = NSURL(string: url),
+           cSnippet = dic["contentSnippet"] as? String,
+           c = dic["content"] as? String {
             
-            let dateString = dic["publishedDate"] as! String
-            let date = dateFormatter.dateFromString(dateString)
+                let entry = Entry(title:t,  link: l, publishedDate: date, contentSnippet: cSnippet, content: c)
             
-            let t = dic["title"] as! String
-            let l = NSURL(string: (dic["link"] as? String)!)
-            
-            let cSnippet = dic["contentSnippet"] as! String
-            let c = dic["content"] as! String
-            
-            let entry = Entry(title:t,  link: l!, publishedDate: date!, contentSnippet: cSnippet, content: c)
-            
-            return entry
+                return entry
         }
         
         return nil
