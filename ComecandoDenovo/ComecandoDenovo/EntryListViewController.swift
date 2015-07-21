@@ -69,6 +69,8 @@ UITableViewDelegate, UITableViewDataSource {
         
         var readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Read List" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            
             let favCell = UIAlertController(title: nil, message: "Added to Safari Reading List", preferredStyle: .ActionSheet)
             let allert = UIAlertAction(title: "Oookay", style: UIAlertActionStyle.Default, handler: nil)
             
@@ -76,6 +78,7 @@ UITableViewDelegate, UITableViewDataSource {
             
             var read: SSReadingList = SSReadingList.defaultReadingList()
             read.addReadingListItemWithURL(e.link, title: e.title, previewText: e.content, error: nil)
+        
             
             favCell.addAction(allert)
             self.presentViewController(favCell, animated: true, completion: nil)
@@ -84,9 +87,6 @@ UITableViewDelegate, UITableViewDataSource {
         if fav.contains(indexPath.row){
             var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Unfavorite" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
                 
-                let cell = tableView.cellForRowAtIndexPath(indexPath)
-                cell?.backgroundColor = UIColor.whiteColor()
-                
                 let undoFav = UIAlertController(title: nil, message: "Removed from favorites", preferredStyle: .ActionSheet)
                 let allert = UIAlertAction(title: "Done ;-; ", style: UIAlertActionStyle.Default, handler: nil)
                 
@@ -94,6 +94,7 @@ UITableViewDelegate, UITableViewDataSource {
                 
                 undoFav.addAction(allert)
                 self.presentViewController(undoFav, animated: true, completion: nil)
+                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             })
             
             return [undo, readingList]
@@ -105,12 +106,11 @@ UITableViewDelegate, UITableViewDataSource {
             let favCell = UIAlertController(title: nil, message: "Added to favorites", preferredStyle: .ActionSheet)
             let allert = UIAlertAction(title: "Oookay", style: UIAlertActionStyle.Default, handler: nil)
             
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            cell!.backgroundColor = UIColor(red: 1, green: 191/255, blue: 1, alpha: 1)//UIColor.purpleColor()
             self.fav.insert(indexPath.row)
             
             favCell.addAction(allert)
             self.presentViewController(favCell, animated: true, completion: nil)
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         })
         
         return [favorite, readingList]

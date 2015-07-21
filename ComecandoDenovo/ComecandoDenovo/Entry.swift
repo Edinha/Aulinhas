@@ -12,11 +12,11 @@ struct Entry {
     
     let title : String
     let link  : NSURL
-    let author : String?
+    //let author : String?
     let publishedDate : NSDate
     let contentSnippet: String
     let content : String
-    let categories : [String]?
+    //let categories : [String]?
     
     static func decode(j : AnyObject?) -> Entry? {
         
@@ -33,7 +33,7 @@ struct Entry {
             let cSnippet = dic["contentSnippet"] as! String
             let c = dic["content"] as! String
             
-            let entry = Entry(title:t,  link: l!, author: nil, publishedDate: date!, contentSnippet: cSnippet, content: c, categories : nil)
+            let entry = Entry(title:t,  link: l!, publishedDate: date!, contentSnippet: cSnippet, content: c)
             
             return entry
         }
@@ -51,8 +51,8 @@ struct Entry {
             let feed = responseData["feed"] as? NSDictionary,
             let json = feed["entries"] as? [NSDictionary] {
                 
-                let e = json.map{ Entry.decode($0)}.filter{ $0 != nil}.map{ $0!}
-                // [Entry?]?                [Entry?]       [Entry]
+                let e = json.map{ Entry.decode($0)}.map{ $0!}
+                              // [Entry?]?         [Entry]?       [Entry]
                 
                 return e
         }
