@@ -15,7 +15,7 @@ UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    let entries:[Entry] = Entry.loadEntrys()!
+    let entries:[Entry] = Entry.loadEntrys()
     
     var fav: Set<Int> = []
     
@@ -27,7 +27,7 @@ UITableViewDelegate, UITableViewDataSource {
     }
     
     override func viewDidAppear(animated: Bool) {
-        //super.viewDidAppear(false )
+        super.viewDidAppear(animated)
         tableView.reloadData()
     }
     
@@ -39,13 +39,13 @@ UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let iden = "Entry"//Reusable.Entry.identifier!
+        let iden = "Entry"
         let cell = tableView.dequeueReusableCellWithIdentifier(iden, forIndexPath: indexPath) as! EntryCell
         
         cell.loadEntry(entries[indexPath.row])
         
         if fav.contains(indexPath.row) {
-            cell.backgroundColor = UIColor(red: 1, green: 191/255, blue: 1, alpha: 1)//UIColor.purpleColor()
+            cell.backgroundColor = UIColor(red: 1, green: 191/255, blue: 1, alpha: 1)
         }
         
         return cell
@@ -56,18 +56,14 @@ UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         UIApplication.sharedApplication().openURL(entries[indexPath.row].link)
     }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        //let cell = tableView.cellForRowAtIndexPath(indexPath)
-        //cell!.backgroundColor = UIColor.whiteColor()
-    }
+
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
         
-        var readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Read List" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        var readingList = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Read List"){action, indexPath in
             
             tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             
@@ -82,10 +78,10 @@ UITableViewDelegate, UITableViewDataSource {
             
             favCell.addAction(allert)
             self.presentViewController(favCell, animated: true, completion: nil)
-        })
+        }
         
         if fav.contains(indexPath.row){
-            var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Unfavorite" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Unfavorite") { action, indexPath in
                 
                 let undoFav = UIAlertController(title: nil, message: "Removed from favorites", preferredStyle: .ActionSheet)
                 let allert = UIAlertAction(title: "Done ;-; ", style: UIAlertActionStyle.Default, handler: nil)
@@ -95,13 +91,13 @@ UITableViewDelegate, UITableViewDataSource {
                 undoFav.addAction(allert)
                 self.presentViewController(undoFav, animated: true, completion: nil)
                 tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-            })
+            }
             
             return [undo, readingList]
         }
         
         
-        var favorite = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Favorite" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        var favorite = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Favorite"){ action,indexPath in
             
             let favCell = UIAlertController(title: nil, message: "Added to favorites", preferredStyle: .ActionSheet)
             let allert = UIAlertAction(title: "Oookay", style: UIAlertActionStyle.Default, handler: nil)
@@ -111,7 +107,7 @@ UITableViewDelegate, UITableViewDataSource {
             favCell.addAction(allert)
             self.presentViewController(favCell, animated: true, completion: nil)
             tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        })
+        }
         
         return [favorite, readingList]
     }

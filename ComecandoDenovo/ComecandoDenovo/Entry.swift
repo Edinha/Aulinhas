@@ -18,13 +18,19 @@ struct Entry {
     let content : String
     //let categories : [String]?
     
+    // closure de inicializaocao estatica de variavel
+    static let dateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
+        
+        return formatter
+        }()
+    
     static func decode(j : AnyObject?) -> Entry? {
         
         if let dic = j as? NSDictionary {
             
             let dateString = dic["publishedDate"] as! String
-            let dateFormatter =  NSDateFormatter()
-            dateFormatter.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
             let date = dateFormatter.dateFromString(dateString)
             
             let t = dic["title"] as! String
@@ -41,7 +47,7 @@ struct Entry {
         return nil
     }
     
-    static func loadEntrys() -> [Entry]?{
+    static func loadEntrys() -> [Entry] {
         
         let path: String = NSBundle.mainBundle().pathForResource("entry", ofType: "json")!
         
@@ -51,12 +57,11 @@ struct Entry {
             let feed = responseData["feed"] as? NSDictionary,
             let json = feed["entries"] as? [NSDictionary] {
                 
-                let e = json.map{ Entry.decode($0)}.map{ $0!}
-                              // [Entry?]?         [Entry]?       [Entry]
+                let e = json.map{ Entry.decode($0)}.filter { $0 != nil }.map{ $0!}
                 
                 return e
         }
         
-        return nil
+        return []
     }
 }
