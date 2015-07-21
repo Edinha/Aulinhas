@@ -80,6 +80,8 @@ UITableViewDelegate, UITableViewDataSource {
             self.presentViewController(favCell, animated: true, completion: nil)
         }
         
+        readingList.backgroundColor = UIColor(red: 1, green: 139/255, blue: 0, alpha: 1)
+        
         if fav.contains(indexPath.row){
             var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Remove") { action, indexPath in
                 
@@ -108,6 +110,8 @@ UITableViewDelegate, UITableViewDataSource {
             self.presentViewController(favCell, animated: true, completion: nil)
             tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
+        
+        favorite.backgroundColor = UIColor(red: 0, green: 60/255, blue: 1, alpha: 1)
         
         return [favorite, readingList]
     }
