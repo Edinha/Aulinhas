@@ -16,18 +16,17 @@ class EntryListViewController : UIViewController ,
     
     let entries:[Entry] = Feed.loadEntrys()!
     
-    //var fav: [Int] = []
     var fav: Set<Int> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.estimatedRowHeight = 160.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 130.0
-        
     }
     
     override func viewDidAppear(animated: Bool) {
+        //super.viewDidAppear(false )
         tableView.reloadData()
     }
     
@@ -41,15 +40,8 @@ class EntryListViewController : UIViewController ,
         
         let iden = Reusable.Entry.identifier!
         let cell = tableView.dequeueReusableCellWithIdentifier(iden, forIndexPath: indexPath) as! EntryCell
-        
+    
         cell.loadEntry(entries[indexPath.row])
-        
-        /*for f in fav {
-            if f == indexPath.row{
-                cell.backgroundColor = UIColor.blueColor()
-                break
-            }
-        } */
         
         if fav.contains(indexPath.row) {
             cell.backgroundColor = UIColor.blueColor()

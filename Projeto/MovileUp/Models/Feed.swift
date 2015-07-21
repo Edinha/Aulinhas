@@ -32,6 +32,7 @@ struct Feed {
            let json = feed["entries"] as? [NSDictionary] {
             
             let e = json.map{ Entry.decode($0)}.filter{ $0 != nil}.map{ $0!}
+                            // [Entry?]?                [Entry?]       [Entry]
             
             return e
         }

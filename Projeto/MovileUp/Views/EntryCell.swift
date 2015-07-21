@@ -10,6 +10,7 @@ import UIKit
 
 class EntryCell : UITableViewCell {
     
+    
     @IBOutlet private weak var title: UILabel!
     
     @IBOutlet private weak var content: UILabel!
@@ -22,8 +23,9 @@ class EntryCell : UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.backgroundColor = UIColor.whiteColor()
-        self.title.font   = UIFont(name: "Helvetica-Light", size:16)
-        self.content.font = UIFont(name: "Helvetica-Light", size:14)
+        
+        self.title.font   = UIFont(name: "HelveticaNeue-Light", size:16)
+        self.content.font = UIFont(name: "HelveticaNeue-Light", size:14)
     }
     
     func loadEntry(e : Entry) {
@@ -31,8 +33,8 @@ class EntryCell : UITableViewCell {
         let cal = NSCalendar.currentCalendar()
         
         if cal.isDateInToday(e.publishedDate) {
-            self.title.font   = UIFont(name: "Helvetica-Bold", size:16)
-            self.content.font = UIFont(name: "Helvetica-Bold", size:14)
+            self.title.font   = UIFont(name: "HelveticaNeue-Bold", size:16)
+            self.content.font = UIFont(name: "HelveticaNeue-Bold", size:14)
         }
         
         self.title.text = e.title
