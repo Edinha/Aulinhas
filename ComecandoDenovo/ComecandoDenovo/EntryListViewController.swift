@@ -45,7 +45,7 @@ UITableViewDelegate, UITableViewDataSource {
         cell.loadEntry(entries[indexPath.row])
         
         if fav.contains(indexPath.row) {
-            cell.backgroundColor = UIColor.blueColor()
+            cell.backgroundColor = UIColor(red: 1, green: 191/255, blue: 1, alpha: 1)//UIColor.purpleColor()
         }
         
         return cell
@@ -82,7 +82,7 @@ UITableViewDelegate, UITableViewDataSource {
         })
         
         if fav.contains(indexPath.row){
-            var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Remove" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            var undo = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Unfavorite" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
                 
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
                 cell?.backgroundColor = UIColor.whiteColor()
@@ -100,13 +100,13 @@ UITableViewDelegate, UITableViewDataSource {
         }
         
         
-        var favorite = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Favorites" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        var favorite = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Favorite" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             
             let favCell = UIAlertController(title: nil, message: "Added to favorites", preferredStyle: .ActionSheet)
             let allert = UIAlertAction(title: "Oookay", style: UIAlertActionStyle.Default, handler: nil)
             
             let cell = tableView.cellForRowAtIndexPath(indexPath)
-            cell!.backgroundColor = UIColor.blueColor()
+            cell!.backgroundColor = UIColor(red: 1, green: 191/255, blue: 1, alpha: 1)//UIColor.purpleColor()
             self.fav.insert(indexPath.row)
             
             favCell.addAction(allert)
