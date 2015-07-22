@@ -14,12 +14,16 @@ import Result
 private enum Router: URLRequestConvertible {
     static let baseURLString = "https://api-v2launch.trakt.tv/"
     case Show(String)
+    case Episode(String, Int, Int)
+    
     // MARK: URLRequestConvertible
     var URLRequest: NSURLRequest {
         let (path: String, parameters: [String: AnyObject]?, method: Alamofire.Method) = {
             switch self {
             case .Show(let id):
                 return ("shows/\(id)", ["extended": "images,full"], .GET)
+            case .Episode(let id, let season, let episode):
+                return ("shows/\(id)/seasons/\(season)/episodes/\(episode)", ["extended": "images,full"], .GET)
             }
         }()
     
@@ -48,22 +52,35 @@ class TraktHTTPClient {
     }()
     
     func getShow(id: String, completion: ((Result<TraktModels.Show, NSError?>) -> Void)?) {
-            
-        let r = Router.Show(id)
                 
-        let m = manager.request(r.URLRequest).responseJSON{ _, _, j, error in
+        manager.request(Router.Show(id)).validate().responseJSON{ _, _, j, error in
 
             if let json = j as? NSDictionary {
         
                 if let show = TraktModels.Show.decode(json) {
-                    completion?(Result<TraktModels.Show, NSError?>.success(show))
+                    completion?(Result.success(show))
                 } else {
-                    completion?(Result.failure(error))
+                    completion?(Result.failure(nil))
                 }
             } else {
                 completion?(Result.failure(error))
             }
         }
-
+    }
+        
+    func getEpisode(showId: String, season: Int, episode: Int, completion: ((Result<TraktModels.Episode, NSError?>) -> Void)?) {
+               
+        manager.request(Router.Episode(showId, season, episode)).validate().responseJSON{ _, _, j, error in
+                
+                if let json = j as? NSDictionary {
+                    if let episode = TraktModels.Episode.decode(json) {
+                        completion?(Result.success(episode))
+                    } else {
+                        completion?(Result.failure(nil))
+                    }
+                } else {
+                    completion?(Result.failure(error))
+                }
+        }
     }
 }

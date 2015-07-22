@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="0a3-Lz-1Sc" kind="relationship" relationship="rootViewController" id="2IU-e4-QLl"/>
+                        <segue destination="odA-gj-4md" kind="relationship" relationship="rootViewController" id="G09-0z-Di5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCA-js-4nB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kWO-s6-tf9">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kWO-s6-tf9">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QI2-Ix-DfM">
@@ -229,7 +229,7 @@ As well as being a fearless warrior, Ragnar embodies the Norse traditions of dev
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="061-Na-ZYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678" y="963"/>
+            <point key="canvasLocation" x="334" y="299"/>
         </scene>
         <!--Episodes-->
         <scene sceneID="xp4-TD-CZj">

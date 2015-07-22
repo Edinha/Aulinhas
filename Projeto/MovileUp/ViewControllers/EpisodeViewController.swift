@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Result
+import TraktModels
 
 class EpisodeViewController : UIViewController {
     
@@ -21,10 +23,20 @@ class EpisodeViewController : UIViewController {
     
     @IBOutlet weak var time: UILabel!
     
+    let http = TraktHTTPClient()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textOverview.textContainer.lineFragmentPadding = 0
         textOverview.textContainerInset = UIEdgeInsetsZero
+        
+        http.getEpisode("game-of-thrones", season: 1, episode: 1, completion: { resultado in
+            
+            let epi = resultado.value!
+            self.episodeTitle.text = epi.title
+            self.textOverview.text = epi.overview
+            
+        })
     }
 }
