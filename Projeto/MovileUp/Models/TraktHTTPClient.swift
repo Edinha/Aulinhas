@@ -51,14 +51,12 @@ class TraktHTTPClient {
         return Manager(configuration: configuration)
     }()
     
-    func getShow(id: String, completion: ((Result<TraktModels.Show, NSError?>) -> Void)?) {
-                
-        manager.request(Router.Show(id)).validate().responseJSON{ _, _, j, error in
-
-            if let json = j as? NSDictionary {
-        
-                if let show = TraktModels.Show.decode(json) {
-                    completion?(Result.success(show))
+    private func getJSONElement<T: JSONDecodable>(router: Router, completion: ((Result<T, NSError?>) -> Void)?) {
+        manager.request(router).validate().responseJSON { (_, _, responseObject, error)  in
+            
+            if let json = responseObject as? NSDictionary {
+                if let value = T.decode(json) {
+                    completion?(Result.success(value))
                 } else {
                     completion?(Result.failure(nil))
                 }
@@ -67,20 +65,14 @@ class TraktHTTPClient {
             }
         }
     }
+                
+    func getShow(id: String, completion: ((Result<TraktModels.Show, NSError?>) -> Void)?) {
+                
+        getJSONElement(Router.Show(id), completion: completion)
+    }
         
     func getEpisode(showId: String, season: Int, episode: Int, completion: ((Result<TraktModels.Episode, NSError?>) -> Void)?) {
                
-        manager.request(Router.Episode(showId, season, episode)).validate().responseJSON{ _, _, j, error in
-                
-                if let json = j as? NSDictionary {
-                    if let episode = TraktModels.Episode.decode(json) {
-                        completion?(Result.success(episode))
-                    } else {
-                        completion?(Result.failure(nil))
-                    }
-                } else {
-                    completion?(Result.failure(error))
-                }
-        }
+        getJSONElement(Router.Episode(showId, season, episode), completion: completion)
     }
 }

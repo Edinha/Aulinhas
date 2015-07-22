@@ -12,7 +12,6 @@ import TraktModels
 
 class EpisodeViewController : UIViewController {
     
-    
     @IBOutlet private weak var episodeTitle: UILabel!
     
     @IBOutlet private weak var textOverview: UITextView!
@@ -31,11 +30,17 @@ class EpisodeViewController : UIViewController {
         textOverview.textContainer.lineFragmentPadding = 0
         textOverview.textContainerInset = UIEdgeInsetsZero
         
-        http.getEpisode("game-of-thrones", season: 1, episode: 1, completion: { resultado in
+        http.getEpisode("game-of-thrones", season: 2, episode: 1, completion: { resultado in
             
-            let epi = resultado.value!
-            self.episodeTitle.text = epi.title
-            self.textOverview.text = epi.overview
+            if let epi = resultado.value {
+                self.episodeTitle.text = epi.title
+                self.textOverview.text = epi.overview
+                
+                if let data = NSData(contentsOfURL: epi.screenshot!.fullImageURL!){
+                    //self.imageEpisode.contentMode = UIViewContentMode.ScaleAspectFit
+                    self.imageEpisode.image = UIImage(data: data)
+                }
+            }
             
         })
     }
