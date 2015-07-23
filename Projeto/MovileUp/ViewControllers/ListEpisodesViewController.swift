@@ -50,7 +50,7 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            /*let cell = tableView.cellForRowAtIndexPath(indexPath)
             cell!.backgroundColor = UIColor.blueColor()
             
             let title: String = String(episodes[indexPath.row].number)
@@ -59,8 +59,20 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
             let alertController = UIAlertController(title: title, message: text, preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             
-            presentViewController(alertController, animated: true, completion: nil)
+            presentViewController(alertController, animated: true, completion: nil) */
             
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "episodes_to_episode" {
+            if let cell = sender as? episodeTableCell,
+                indexPath = tableView.indexPathForCell(cell) {
+                
+                    let e = episodes[indexPath.row]
+                    let vc = segue.destinationViewController as! EpisodeViewController
+                    vc.episode = e
+                    
+            }
+        }
+    }
 }

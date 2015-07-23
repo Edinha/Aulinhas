@@ -18,11 +18,11 @@ class EpisodeViewController : UIViewController {
     
     @IBOutlet private weak var imageEpisode: UIImageView!
     
-    @IBOutlet weak var channel: UILabel!
+    @IBOutlet private weak var channel: UILabel!
     
-    @IBOutlet weak var time: UILabel!
+    @IBOutlet private weak var time: UILabel!
     
-    let http = TraktHTTPClient()
+    var episode: TraktModels.Episode? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,19 +30,15 @@ class EpisodeViewController : UIViewController {
         textOverview.textContainer.lineFragmentPadding = 0
         textOverview.textContainerInset = UIEdgeInsetsZero
         
-        http.getEpisode("game-of-thrones", season: 2, episode: 1,
-            completion: { [weak self] resultado in
+        if let e = self.episode {
+            episodeTitle.text = e.title
+            textOverview.text = e.overview
             
-            if let epi = resultado.value {
-                self?.episodeTitle.text = epi.title
-                self?.textOverview.text = epi.overview
-                
-                if let data = NSData(contentsOfURL: epi.screenshot!.fullImageURL!){
-                    //self.imageEpisode.contentMode = UIViewContentMode.ScaleAspectFit
-                    self?.imageEpisode.image = UIImage(data: data)
-                }
+            
+            if let img = e.screenshot?.fullImageURL ?? e.screenshot?.mediumImageURL ?? e.screenshot?.thumbImageURL,
+                data = NSData(contentsOfURL: img){
+                    imageEpisode.image = UIImage(data: data)
             }
-            
-        })
+        }
     }
 }

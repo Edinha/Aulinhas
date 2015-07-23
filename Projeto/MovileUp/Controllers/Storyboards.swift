@@ -202,6 +202,45 @@ extension ShowListViewController {
 //MARK: - EpisodeViewController
 
 //MARK: - ListEpisodesViewController
+extension UIStoryboardSegue {
+    func selection() -> ListEpisodesViewController.Segue? {
+        if let identifier = self.identifier {
+            return ListEpisodesViewController.Segue(rawValue: identifier)
+        }
+        return nil
+    }
+}
+
+extension ListEpisodesViewController { 
+
+    enum Segue: String, Printable, SegueProtocol {
+        case episodes_to_episode = "episodes_to_episode"
+
+        var kind: SegueKind? {
+            switch (self) {
+            case episodes_to_episode:
+                return SegueKind(rawValue: "show")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var destination: UIViewController.Type? {
+            switch (self) {
+            case episodes_to_episode:
+                return EpisodeViewController.self
+            default:
+                assertionFailure("Unknown destination")
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
 extension ListEpisodesViewController { 
 
     enum Reusable: String, Printable, ReusableViewProtocol {

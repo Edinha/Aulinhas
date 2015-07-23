@@ -73,4 +73,10 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
             //presentViewController(alertController, animated: true, completion: nil)
             
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "shows_to_show" {
+            
+        }
+    }
 }
