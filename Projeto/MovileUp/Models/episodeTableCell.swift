@@ -29,6 +29,6 @@ class episodeTableCell : UITableViewCell {
     func loadEpisode(ep : TraktModels.Episode) {
     
         self.episodeName.text = ep.title
-        self.episodeNumber.text = String(ep.number)
+        self.episodeNumber.text = "S" + String(ep.seasonNumber) + "E" + String(ep.number)
     }
 }

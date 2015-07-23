@@ -25,20 +25,21 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
             completion: { [weak self] resultado in
                 if let e = resultado.value {
                     self?.episodes = e
+                    self?.tableView.reloadData()
                 }
+                
             })
-        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int { return 1}
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return episodes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let iden = "Episode"//Reusable.Episode.identifier!
+        let iden = Reusable.Episode.identifier!
         let cell = tableView.dequeueReusableCellWithIdentifier(iden, forIndexPath: indexPath) as! episodeTableCell
         
         cell.loadEpisode(episodes[indexPath.row])

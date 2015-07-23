@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="y4k-dt-nLx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -8,6 +8,7 @@
         <!--Custom Navigation Controller-->
         <scene sceneID="Bvm-d2-jmT">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LCA-js-4nB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="y4k-dt-nLx" customClass="CustomNavigationController" customModule="MovileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LGY-gd-S7j">
@@ -15,16 +16,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="odA-gj-4md" kind="relationship" relationship="rootViewController" id="nGh-9u-wPh"/>
+                        <segue destination="0a3-Lz-1Sc" kind="relationship" relationship="rootViewController" id="1Za-2W-LEh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LCA-js-4nB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-73" y="299"/>
         </scene>
         <!--Shows-->
         <scene sceneID="MRD-gy-3N7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WDU-yy-RdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Shows" id="0a3-Lz-1Sc" customClass="ShowListViewController" customModule="MovileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wIh-Gg-Qfp"/>
@@ -34,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kWO-s6-tf9">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kWO-s6-tf9">
                                 <rect key="frame" x="0.0" y="10" width="320" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QI2-Ix-DfM">
@@ -51,7 +52,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tlh-1p-qXV">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="Tlh-1p-qXV">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="136"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-kJ-KKp">
@@ -108,13 +109,13 @@
                         <outlet property="collectionView" destination="kWO-s6-tf9" id="kop-iG-P0m"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WDU-yy-RdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-43" y="963"/>
         </scene>
         <!--Titulo-->
         <scene sceneID="NGq-1u-OcC">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="061-Na-ZYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Titulo" id="odA-gj-4md" customClass="EpisodeViewController" customModule="MovileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7UX-Gd-l7l"/>
@@ -232,13 +233,13 @@
                         <outlet property="time" destination="WNd-OU-ngt" id="fOz-8c-MgP"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="061-Na-ZYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="313" y="963"/>
         </scene>
         <!--Episodes-->
         <scene sceneID="xp4-TD-CZj">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FJG-YO-xf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="FZt-5z-E4N" customClass="ListEpisodesViewController" customModule="MovileUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MME-ht-PKl"/>
@@ -304,7 +305,6 @@
                         <outlet property="tableView" destination="Fde-R6-bnx" id="DFz-jb-AWg"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FJG-YO-xf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="370" y="299"/>
         </scene>
@@ -312,5 +312,6 @@
     <resources>
         <image name="bg-overlay" width="320" height="200"/>
         <image name="clock" width="38" height="34"/>
+        <image name="poster" width="96" height="139"/>
     </resources>
 </document>

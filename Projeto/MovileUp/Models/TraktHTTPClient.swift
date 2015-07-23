@@ -28,11 +28,11 @@ private enum Router: URLRequestConvertible {
             case .Episode(let id, let season, let episode):
                 return ("shows/\(id)/seasons/\(season)/episodes/\(episode)", ["extended": "images,full"], .GET)
             case .Episodes(let id, let season):
-                return ("shows/\(id)/seasons/\(season)", nil, .GET)
+                return ("shows/\(id)/seasons/\(season)", ["extended": "images,full"], .GET)
             case .PopularShows():
-                return ("shows/popular", nil, .GET)
+                return ("shows/popular", ["extended": "images,full"], .GET)
             case .Seasons(let id):
-                return ("shows/\(id)/seasons", nil, .GET)
+                return ("shows/\(id)/seasons", ["extended": "images,full"], .GET)
             }
         }()
     
@@ -79,15 +79,14 @@ class TraktHTTPClient {
     private func getJSONArray<T: JSONDecodable>(router: Router, completion: ((Result<[T], NSError?>) -> Void)?) {
         manager.request(router).validate().responseJSON { (_, _, responseObject, error)  in
 
-            if let json = responseObject as? [NSDictionary] {
+            if let json = responseObject as? [NSDictionary] {    
                 var values:[T] = []                
                 for dict in json {
                     if let element = T.decode(dict) {
                         values.append(element)
                     }
                 }
-                
-                print(values)
+            
                 completion?(Result.success(values))
             } else {
                 completion?(Result.failure(error))

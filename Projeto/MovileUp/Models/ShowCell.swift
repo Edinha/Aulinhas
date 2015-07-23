@@ -16,7 +16,12 @@ class ShowCell : UICollectionViewCell {
     @IBOutlet private weak var showName: UILabel!
     
     func loadShow(s : TraktModels.Show) {
-        //showImage.image = UIImage(named: s.poster?.fullImageURL!)
+        
+        if let img = s.poster?.fullImageURL ?? s.poster?.mediumImageURL ?? s.poster?.thumbImageURL,
+            data = NSData(contentsOfURL: img) {
+            showImage.image = UIImage(data: data)
+        }
+        
         showName.text = s.title
     }
     
@@ -26,5 +31,6 @@ class ShowCell : UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        showImage.image = UIImage(named: "poster")
     }
 }

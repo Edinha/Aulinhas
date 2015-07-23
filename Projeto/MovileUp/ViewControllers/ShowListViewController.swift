@@ -24,6 +24,7 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
         http.getPopularShows({ [weak self] resultado in
             if let s = resultado.value {
                 self?.shows = s
+                self?.collectionView.reloadData()
             }
         })
     }
@@ -38,7 +39,7 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
         
         let cell = colView.dequeueReusableCell(Reusable.Show, forIndexPath: indexPath) as! ShowCell
         
-        cell.loadShow(shows[indexPath.item % shows.count])
+        cell.loadShow(shows[indexPath.item])
         
         return cell
     }
@@ -59,11 +60,11 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
             
-            collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+            //collectionView.deselectItemAtIndexPath(indexPath, animated: true)
             
-            let cell = collectionView.cellForItemAtIndexPath(indexPath)
+            //let cell = collectionView.cellForItemAtIndexPath(indexPath)
        
-            let title: String = shows[indexPath.item % shows.count].title
+            //let title: String = shows[indexPath.item % shows.count].title
             //let text : String = shows[indexPath.item % shows.count].name
             
             //let alertController = UIAlertController(title: title, message: text, preferredStyle: .Alert)

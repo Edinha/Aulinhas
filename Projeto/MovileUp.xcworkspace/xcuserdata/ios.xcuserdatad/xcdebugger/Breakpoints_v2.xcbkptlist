@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/ViewControllers/ListEpisodesViewController.swift"
-            timestampString = "459369115.289353"
+            timestampString = "459373413.712441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "ListEpisodesViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -134,11 +134,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/Models/TraktHTTPClient.swift"
-            timestampString = "459369115.289353"
+            timestampString = "459373413.712441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "getPopularShows(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -182,11 +182,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/Models/TraktHTTPClient.swift"
-            timestampString = "459369115.289353"
+            timestampString = "459373413.712441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "getJSONArray(_:completion:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -198,7 +198,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/Models/TraktHTTPClient.swift"
-            timestampString = "459368857.706337"
+            timestampString = "459373413.712441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
@@ -213,14 +213,62 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MovileUp/Models/TraktHTTPClient.swift"
-            timestampString = "459368901.673552"
+            filePath = "MovileUp/Models/ShowCell.swift"
+            timestampString = "459374252.273137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "getJSONArray(_:completion:)"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "loadShow(_:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovileUp/Models/ShowCell.swift"
+            timestampString = "459374252.273137"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "loadShow(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MovileUp.ShowCell.awakeFromNib (MovileUp.ShowCell)() -&gt; ()"
+                  moduleName = "MovileUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ios/MovileUp/MovileUp/Models/ShowCell.swift"
+                  timestampString = "459373735.744904"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc MovileUp.ShowCell.awakeFromNib (MovileUp.ShowCell)() -&gt; ()"
+                  moduleName = "MovileUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ios/MovileUp/MovileUp/Models/ShowCell.swift"
+                  timestampString = "459373735.745136"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
