@@ -15,6 +15,9 @@ private enum Router: URLRequestConvertible {
     static let baseURLString = "https://api-v2launch.trakt.tv/"
     case Show(String)
     case Episode(String, Int, Int)
+    case Episodes(String, Int)
+    case PopularShows()
+    case Seasons(String)
     
     // MARK: URLRequestConvertible
     var URLRequest: NSURLRequest {
@@ -24,6 +27,12 @@ private enum Router: URLRequestConvertible {
                 return ("shows/\(id)", ["extended": "images,full"], .GET)
             case .Episode(let id, let season, let episode):
                 return ("shows/\(id)/seasons/\(season)/episodes/\(episode)", ["extended": "images,full"], .GET)
+            case .Episodes(let id, let season):
+                return ("shows/\(id)/seasons/\(season)", nil, .GET)
+            case .PopularShows():
+                return ("shows/popular", nil, .GET)
+            case .Seasons(let id):
+                return ("shows/\(id)/seasons", nil, .GET)
             }
         }()
     
@@ -60,19 +69,50 @@ class TraktHTTPClient {
                 } else {
                     completion?(Result.failure(nil))
                 }
+
             } else {
                 completion?(Result.failure(error))
             }
         }
     }
+    
+    private func getJSONArray<T: JSONDecodable>(router: Router, completion: ((Result<[T], NSError?>) -> Void)?) {
+        manager.request(router).validate().responseJSON { (_, _, responseObject, error)  in
+
+            if let json = responseObject as? [NSDictionary] {
+                var values:[T] = []                
+                for dict in json {
+                    if let element = T.decode(dict) {
+                        values.append(element)
+                    }
+                }
                 
+                print(values)
+                completion?(Result.success(values))
+            } else {
+                completion?(Result.failure(error))
+            }
+        }
+    }
+            
     func getShow(id: String, completion: ((Result<TraktModels.Show, NSError?>) -> Void)?) {
-                
         getJSONElement(Router.Show(id), completion: completion)
     }
         
     func getEpisode(showId: String, season: Int, episode: Int, completion: ((Result<TraktModels.Episode, NSError?>) -> Void)?) {
-               
         getJSONElement(Router.Episode(showId, season, episode), completion: completion)
     }
-}
+    
+    func getPopularShows(completion: ((Result<[TraktModels.Show], NSError?>) -> Void)?) {
+        getJSONArray(Router.PopularShows(), completion: completion)
+    }
+    
+    func getSeasons(showId: String, completion: ((Result<[TraktModels.Season], NSError?>) -> Void)?) {
+        getJSONArray(Router.Seasons(showId), completion: completion)
+    }
+    
+    func getEpisodes(showId: String, season: Int, completion: ((Result<[TraktModels.Episode], NSError?>) -> Void)?) {
+        getJSONArray(Router.Episodes(showId, season), completion: completion)
+    }
+    
+};

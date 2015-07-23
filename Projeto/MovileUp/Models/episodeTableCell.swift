@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import TraktModels
 
 class episodeTableCell : UITableViewCell {
     
    
     @IBOutlet private weak var episodeNumber: UILabel!
-    
     
     @IBOutlet private weak var episodeName: UILabel!
     
@@ -26,9 +26,9 @@ class episodeTableCell : UITableViewCell {
         self.backgroundColor = UIColor.whiteColor()
     }
     
-    func loadEpisode(ep : Episode) {
+    func loadEpisode(ep : TraktModels.Episode) {
     
-        self.episodeName.text = ep.name
-        self.episodeNumber.text = ep.episode
+        self.episodeName.text = ep.title
+        self.episodeNumber.text = String(ep.number)
     }
 }

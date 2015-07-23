@@ -7,16 +7,27 @@
 //
 
 import UIKit
+import Result
+import TraktModels
 
 class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     @IBOutlet private weak var tableView: UITableView!
     
-    let episodes = Episode.all()
+    let http = TraktHTTPClient()
+    
+    private var episodes:[TraktModels.Episode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        http.getEpisodes("game-of-thrones", season: 1,
+            completion: { [weak self] resultado in
+                if let e = resultado.value {
+                    self?.episodes = e
+                }
+            })
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int { return 1}
@@ -27,7 +38,7 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let iden = Reusable.Episode.identifier!
+        let iden = "Episode"//Reusable.Episode.identifier!
         let cell = tableView.dequeueReusableCellWithIdentifier(iden, forIndexPath: indexPath) as! episodeTableCell
         
         cell.loadEpisode(episodes[indexPath.row])
@@ -41,8 +52,8 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             cell!.backgroundColor = UIColor.blueColor()
             
-            let title: String = episodes[indexPath.row].episode
-            let text : String = episodes[indexPath.row].name
+            let title: String = String(episodes[indexPath.row].number)
+            let text : String = episodes[indexPath.row].title!
             
             let alertController = UIAlertController(title: title, message: text, preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

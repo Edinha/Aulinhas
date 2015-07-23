@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import Result
+import TraktModels
 
 class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICollectionViewDataSource{
 
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    let shows = Show.loadShow()
+    let http = TraktHTTPClient()
+    
+    private var shows:[TraktModels.Show] = []//Show.loadShow()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        http.getPopularShows({ [weak self] resultado in
+            if let s = resultado.value {
+                self?.shows = s
+            }
+        })
     }
     
     func numberOfSectionsInCollectionView(tableView: UICollectionView) -> Int { return 1}
@@ -53,13 +63,13 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
             
             let cell = collectionView.cellForItemAtIndexPath(indexPath)
        
-            let title: String = shows[indexPath.item % shows.count].url
-            let text : String = shows[indexPath.item % shows.count].name
+            let title: String = shows[indexPath.item % shows.count].title
+            //let text : String = shows[indexPath.item % shows.count].name
             
-            let alertController = UIAlertController(title: title, message: text, preferredStyle: .Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            //let alertController = UIAlertController(title: title, message: text, preferredStyle: .Alert)
+            //alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             
-            presentViewController(alertController, animated: true, completion: nil)
+            //presentViewController(alertController, animated: true, completion: nil)
             
     }
 }

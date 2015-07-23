@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TraktModels
 
 class ShowCell : UICollectionViewCell {
     
@@ -14,9 +15,9 @@ class ShowCell : UICollectionViewCell {
     @IBOutlet private weak var showImage: UIImageView!
     @IBOutlet private weak var showName: UILabel!
     
-    func loadShow(s : Show) {
-        showImage.image = UIImage(named: s.url)
-        showName.text = s.name
+    func loadShow(s : TraktModels.Show) {
+        //showImage.image = UIImage(named: s.poster?.fullImageURL!)
+        showName.text = s.title
     }
     
     override func awakeFromNib() {
