@@ -33,7 +33,9 @@ class EpisodeViewController : UIViewController {
         if let e = self.episode {
             episodeTitle.text = e.title
             textOverview.text = e.overview
-            
+            let date = NSDateFormatter()
+            time.text = date.stringFromDate(e.firstAired!) //?? ""
+            channel.text = ""
             
             if let img = e.screenshot?.fullImageURL ?? e.screenshot?.mediumImageURL ?? e.screenshot?.thumbImageURL,
                 data = NSData(contentsOfURL: img){
