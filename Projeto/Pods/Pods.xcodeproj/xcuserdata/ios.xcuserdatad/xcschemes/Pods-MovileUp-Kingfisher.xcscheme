@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "737CA89B14CAC86C31252FD5"
-               BuildableName = "TraktModels.framework"
-               BlueprintName = "Pods-MovileUp-TraktModels"
+               BlueprintIdentifier = "2E1AB2C94A143D17CEF34202"
+               BuildableName = "Kingfisher.framework"
+               BlueprintName = "Pods-MovileUp-Kingfisher"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

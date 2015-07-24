@@ -23,6 +23,7 @@ class EpisodeViewController : UIViewController {
     @IBOutlet private weak var time: UILabel!
     
     var episode: TraktModels.Episode? = nil
+    //private var task: RetrieveImageTask?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class EpisodeViewController : UIViewController {
             let date = NSDateFormatter()
             time.text = date.stringFromDate(e.firstAired!) //?? ""
             channel.text = ""
-            
+
             if let img = e.screenshot?.fullImageURL ?? e.screenshot?.mediumImageURL ?? e.screenshot?.thumbImageURL,
                 data = NSData(contentsOfURL: img){
                     imageEpisode.image = UIImage(data: data)

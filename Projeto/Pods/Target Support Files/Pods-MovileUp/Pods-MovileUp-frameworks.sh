@@ -51,6 +51,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'Box.framework'
   install_framework 'ISO8601DateFormatter.framework'
+  install_framework 'Kingfisher.framework'
   install_framework 'Result.framework'
   install_framework 'TraktModels.framework'
 fi
@@ -58,6 +59,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'Box.framework'
   install_framework 'ISO8601DateFormatter.framework'
+  install_framework 'Kingfisher.framework'
   install_framework 'Result.framework'
   install_framework 'TraktModels.framework'
 fi

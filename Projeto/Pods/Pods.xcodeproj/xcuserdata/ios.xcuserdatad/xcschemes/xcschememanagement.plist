@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MovileUp-Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MovileUp-Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,52 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1FF2B9F69C963EE47194EFCD</key>
+		<key>032E24C13FD473A7A453E00F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>20505FF832147E675FFC9E1C</key>
+		<key>048824EB2A347DBF289AB011</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E69DB50A4CB08E9BC6B65F2</key>
+		<key>0A0A649E36121071A9F868E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6CFA4B8DE304A30D0F08457B</key>
+		<key>26F69534F18332929CEC6D08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A9A7B1829D871D221FC345C</key>
+		<key>2E1AB2C94A143D17CEF34202</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB7A414FAA2BD3CD3346C9E0</key>
+		<key>3639F2F3503F68A4E38AC1EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C72369F4B600FCD566E45FBA</key>
+		<key>737CA89B14CAC86C31252FD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D19F582EA6A484B1BD857178</key>
+		<key>7F30B4603FDAD5C9F4BE8C45</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D409B2F7F48DEC16291CBFD0</key>
+		<key>AE1FC830BAED7B2BB61A5DD1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB6CC2283E4ED60D49B43512</key>
+		<key>D540AA2BF2C95FF72AD3B753</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E6EA458B74EFFD52D1E82A3E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

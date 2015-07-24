@@ -167,7 +167,48 @@ extension UITableView {
 
 //MARK: - CustomNavigationController
 
+//MARK: - ShowViewController
+
 //MARK: - ShowListViewController
+extension UIStoryboardSegue {
+    func selection() -> ShowListViewController.Segue? {
+        if let identifier = self.identifier {
+            return ShowListViewController.Segue(rawValue: identifier)
+        }
+        return nil
+    }
+}
+
+extension ShowListViewController { 
+
+    enum Segue: String, Printable, SegueProtocol {
+        case shows_to_show = "shows_to_show"
+
+        var kind: SegueKind? {
+            switch (self) {
+            case shows_to_show:
+                return SegueKind(rawValue: "show")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var destination: UIViewController.Type? {
+            switch (self) {
+            case shows_to_show:
+                return ShowViewController.self
+            default:
+                assertionFailure("Unknown destination")
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
 extension ShowListViewController { 
 
     enum Reusable: String, Printable, ReusableViewProtocol {
@@ -271,3 +312,5 @@ extension ListEpisodesViewController {
 
 }
 
+
+//MARK: - CurrentSeasonViewController

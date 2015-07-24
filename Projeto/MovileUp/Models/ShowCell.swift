@@ -8,6 +8,7 @@
 
 import UIKit
 import TraktModels
+import Kingfisher
 
 class ShowCell : UICollectionViewCell {
     
@@ -15,11 +16,15 @@ class ShowCell : UICollectionViewCell {
     @IBOutlet private weak var showImage: UIImageView!
     @IBOutlet private weak var showName: UILabel!
     
+    private var task: RetrieveImageTask?
+    
     func loadShow(s : TraktModels.Show) {
+        let placeholder = UIImage(named: "poster")
         
-        if let img = s.poster?.fullImageURL ?? s.poster?.mediumImageURL ?? s.poster?.thumbImageURL,
-            data = NSData(contentsOfURL: img) {
-            showImage.image = UIImage(data: data)
+        if let url = s.poster?.fullImageURL ?? s.poster?.mediumImageURL ?? s.poster?.thumbImageURL {
+            showImage.kf_setImageWithURL(url, placeholderImage: placeholder)
+        } else {
+            showImage.image = placeholder
         }
         
         showName.text = s.title
@@ -31,6 +36,9 @@ class ShowCell : UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        showImage.image = UIImage(named: "poster")
+
+        task?.cancel()
+        task = nil
+        showImage.image = nil
     }
 }
