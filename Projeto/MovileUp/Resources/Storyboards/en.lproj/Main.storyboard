@@ -541,7 +541,6 @@
                                             <outlet property="episodeCount" destination="7z8-NZ-1Od" id="OTW-Ga-qGY"/>
                                             <outlet property="seasonImage" destination="Bgp-XJ-Hvg" id="AYy-Jc-k9J"/>
                                             <outlet property="seasonStatus" destination="yiE-cK-CkW" id="VWj-4i-9u8"/>
-                                            <segue destination="FZt-5z-E4N" kind="show" identifier="season_info" id="Oh8-xX-JxJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

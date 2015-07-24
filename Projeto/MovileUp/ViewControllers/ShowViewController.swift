@@ -32,9 +32,10 @@ class ShowViewController : UIViewController {
             http.getSeasons(s.identifiers.slug! , completion: { [weak self] resultado in
                 
                 if let value = resultado.value {
-                    //colocar as parada aqui, provavelmente uma outlet para view :P
+                    
                     self?.seasons = value
                     let current = self?.seasons[self!.seasons.count-1]
+                    //colocar as parada aqui, provavelmente uma outlet para view :P
                     self?.title = s.title
                 }
             })
@@ -60,5 +61,6 @@ class ShowViewController : UIViewController {
             //vc.year = self.year
             //}
         }
+        
     }
 }

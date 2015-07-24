@@ -30,5 +30,7 @@ class CurrentSeasonCell : UITableViewCell {
             seasonImage.kf_setImageWithURL(img)
         }
         
+        seasonStatus.text = "Season " + String(s.number) + "(" + String(year) + ")"
+        episodeCount.text = String(s.episodeCount!) + " episodes"
     }
 }

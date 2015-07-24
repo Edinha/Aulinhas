@@ -15,18 +15,9 @@ class CurrentSeasonViewController : UIViewController, UITableViewDelegate, UITab
     var season: TraktModels.Season? = nil
     var year: Int? = nil
     
-    func loadSeason(img: NSURL, seasonNumber: Int, year: Int, count: Int) {
-        //seasonImage.kf_setImageWithURL(img)
-        //seasonStatus.text = "Season " + String(seasonNumber) + "(" + String(year) + ")"
-        //episodeCount.text = String(count) + " episodes"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let s = self.season, y = self.year {
-            
-        }
+        //print(season)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int { return 1}
@@ -40,7 +31,9 @@ class CurrentSeasonViewController : UIViewController, UITableViewDelegate, UITab
         let iden = Reusable.CurrentSeason.identifier!
         let cell = tableView.dequeueReusableCellWithIdentifier(iden, forIndexPath: indexPath) as! CurrentSeasonCell
         
-        //cell.loadEpisode(episodes[indexPath.row])
+        if let s = self.season {
+            cell.loadSeason(s, year: 2015)
+        }
         
         return cell
     }
