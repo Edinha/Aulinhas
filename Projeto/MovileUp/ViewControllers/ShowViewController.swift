@@ -34,6 +34,8 @@ class ShowViewController : UIViewController {
                 if let value = resultado.value {
                     //colocar as parada aqui, provavelmente uma outlet para view :P
                     self?.seasons = value
+                    let current = self?.seasons[self!.seasons.count-1]
+                    self?.title = s.title
                 }
             })
             
@@ -41,12 +43,22 @@ class ShowViewController : UIViewController {
             self.storyline.text = s.overview
             
             let placeholder = UIImage(named: "poster")
-            if let url = s.poster?.fullImageURL ?? s.poster?.mediumImageURL ?? s.poster?.thumbImageURL {
+            if let url = s.thumbImageURL {//s.poster?.fullImageURL ?? s.poster?.mediumImageURL ?? s.poster?.thumbImageURL {
                 image.kf_setImageWithURL(url, placeholderImage: placeholder)
             } else {
                 image.image = placeholder
             }
             
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "season_info" {
+            //if let cell = sender as? CurrentSeasonCell {
+            let vc = segue.destinationViewController as! ListEpisodesViewController
+            vc.season = self.seasons[self.seasons.count - 1]
+            //vc.year = self.year
+            //}
         }
     }
 }

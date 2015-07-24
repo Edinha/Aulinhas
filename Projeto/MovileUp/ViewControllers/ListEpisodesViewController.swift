@@ -13,22 +13,30 @@ import TraktModels
 class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var frontImage: UIImageView!
+    @IBOutlet private weak var backImage: UIImageView!
+    @IBOutlet private weak var year: UILabel!
     
     let http = TraktHTTPClient()
     
     private var episodes:[TraktModels.Episode] = []
     
+    var season: TraktModels.Season? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        http.getEpisodes("game-of-thrones", season: 1,
-            completion: { [weak self] resultado in
-                if let e = resultado.value {
-                    self?.episodes = e
-                    self?.tableView.reloadData()
-                }
+        if let s = self.season {
+            self.title = "Season " + String(s.number)
+            http.getEpisodes(s.identifiers!.slug!, season: s.number,
+                completion: { [weak self] resultado in
+                    if let e = resultado.value {
+                        self?.episodes = e  // mudar depois
+                        self?.tableView.reloadData()
+                    }
                 
-            })
+                })
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int { return 1}

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/ViewControllers/ListEpisodesViewController.swift"
-            timestampString = "459373413.712441"
+            timestampString = "459461266.41014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "ListEpisodesViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -150,11 +150,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/ViewControllers/ListEpisodesViewController.swift"
-            timestampString = "459368997.309548"
+            timestampString = "459461266.41014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -262,13 +262,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/ViewControllers/ShowViewController.swift"
-            timestampString = "459454004.871587"
+            timestampString = "459461266.41014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "ShowViewController"
-            landmarkType = "3">
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

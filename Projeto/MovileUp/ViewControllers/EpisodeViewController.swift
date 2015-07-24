@@ -9,6 +9,7 @@
 import UIKit
 import Result
 import TraktModels
+import Kingfisher
 
 class EpisodeViewController : UIViewController {
     
@@ -23,7 +24,6 @@ class EpisodeViewController : UIViewController {
     @IBOutlet private weak var time: UILabel!
     
     var episode: TraktModels.Episode? = nil
-    //private var task: RetrieveImageTask?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +34,17 @@ class EpisodeViewController : UIViewController {
         if let e = self.episode {
             episodeTitle.text = e.title
             textOverview.text = e.overview
+            
             let date = NSDateFormatter()
-            time.text = date.stringFromDate(e.firstAired!) //?? ""
+            date.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
+            time.text = date.stringFromDate(e.firstAired!)
             channel.text = ""
 
-            if let img = e.screenshot?.fullImageURL ?? e.screenshot?.mediumImageURL ?? e.screenshot?.thumbImageURL,
-                data = NSData(contentsOfURL: img){
-                    imageEpisode.image = UIImage(data: data)
+            if let img = e.screenshot?.fullImageURL ?? e.screenshot?.mediumImageURL ?? e.screenshot?.thumbImageURL{
+                imageEpisode.kf_setImageWithURL(img)
             }
+            
+            self.title = "Episode " + String(e.number)
         }
     }
 }

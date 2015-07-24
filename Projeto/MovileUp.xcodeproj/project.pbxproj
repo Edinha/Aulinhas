@@ -28,6 +28,7 @@
 		81BAE87A1B56E90100290D72 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAE8791B56E90100290D72 /* CustomNavigationController.swift */; };
 		81BD63E51B62A67B00B26CE3 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD63E41B62A67B00B26CE3 /* ShowViewController.swift */; };
 		81BD63E71B62AFFA00B26CE3 /* CurrentSeasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD63E61B62AFFA00B26CE3 /* CurrentSeasonViewController.swift */; };
+		81BD63E91B62CD1700B26CE3 /* CurrentSeasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD63E81B62CD1700B26CE3 /* CurrentSeasonCell.swift */; };
 		8AE9B9526166F39E57138D6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC3EC56EBB183BCC7AE9536 /* Images.xcassets */; };
 		9B68F435B72F80B154DC3F71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027BF6E9F6DFC3F61110479 /* AppDelegate.swift */; };
 		C3734069B2E6CD38DBE3548B /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687D6A0569E162BA237B5743 /* Storyboards.swift */; };
@@ -70,6 +71,7 @@
 		81BAE8791B56E90100290D72 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		81BD63E41B62A67B00B26CE3 /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 		81BD63E61B62AFFA00B26CE3 /* CurrentSeasonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSeasonViewController.swift; sourceTree = "<group>"; };
+		81BD63E81B62CD1700B26CE3 /* CurrentSeasonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSeasonCell.swift; sourceTree = "<group>"; };
 		86F831887DFB0916758C1F11 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05744733574A614A0BC24C4 /* Pods-unit_tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-unit_tests/Pods-unit_tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BED504A6D90C0FFFE28CC3EE /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				814EFD701B59758000E00C76 /* Season.swift */,
 				814EFD761B598D2F00E00C76 /* ShowCell.swift */,
 				814EFD781B598D3B00E00C76 /* Show.swift */,
+				81BD63E81B62CD1700B26CE3 /* CurrentSeasonCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				814EFD6F1B5974AA00E00C76 /* SeasonCell.swift in Sources */,
 				81BAE8761B56DA7800290D72 /* Main.storyboard in Sources */,
 				81B423B11B5833B600A2D896 /* episodeTableCell.swift in Sources */,
+				81BD63E91B62CD1700B26CE3 /* CurrentSeasonCell.swift in Sources */,
 				81B423AD1B5828A400A2D896 /* EpisodeViewController.swift in Sources */,
 				81B423AF1B582F5F00A2D896 /* ListEpisodesViewController.swift in Sources */,
 				81B423B31B58376F00A2D896 /* Episode.swift in Sources */,

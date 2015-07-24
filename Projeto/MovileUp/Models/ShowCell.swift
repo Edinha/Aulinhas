@@ -22,7 +22,7 @@ class ShowCell : UICollectionViewCell {
         let placeholder = UIImage(named: "poster")
         
         if let url = s.poster?.fullImageURL ?? s.poster?.mediumImageURL ?? s.poster?.thumbImageURL {
-            showImage.kf_setImageWithURL(url, placeholderImage: placeholder)
+            task = showImage.kf_setImageWithURL(url, placeholderImage: placeholder)
         } else {
             showImage.image = placeholder
         }
