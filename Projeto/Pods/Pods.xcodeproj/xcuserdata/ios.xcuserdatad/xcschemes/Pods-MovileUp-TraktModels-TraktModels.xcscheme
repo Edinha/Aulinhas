@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D540AA2BF2C95FF72AD3B753"
+               BlueprintIdentifier = "97D2E6DF398A036169988870"
                BuildableName = "TraktModels.bundle"
                BlueprintName = "Pods-MovileUp-TraktModels-TraktModels"
                ReferencedContainer = "container:Pods.xcodeproj">

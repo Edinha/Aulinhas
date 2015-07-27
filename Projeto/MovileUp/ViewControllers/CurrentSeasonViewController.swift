@@ -12,18 +12,32 @@ import Kingfisher
 
 class CurrentSeasonViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var season: TraktModels.Season? = nil
-    var year: Int? = nil
+    var seasons: [TraktModels.Season] = []
+    var slug : String? = nil
+    
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(season)
+        
+        if let s = self.slug {
+            
+            print(s)
+            let http = TraktHTTPClient()
+            http.getSeasons( s , completion: { [weak self] resultado in
+                
+                if let value = resultado.value {
+                    self?.seasons = value
+                }
+            })
+        }
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int { return 1}
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return seasons.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -31,9 +45,7 @@ class CurrentSeasonViewController : UIViewController, UITableViewDelegate, UITab
         let iden = Reusable.CurrentSeason.identifier!
         let cell = tableView.dequeueReusableCellWithIdentifier(iden, forIndexPath: indexPath) as! CurrentSeasonCell
         
-        if let s = self.season {
-            cell.loadSeason(s, year: 2015)
-        }
+        cell.loadSeason(seasons[indexPath.row])
         
         return cell
     }
@@ -42,7 +54,7 @@ class CurrentSeasonViewController : UIViewController, UITableViewDelegate, UITab
         if segue.identifier == "season_info" {
             //if let cell = sender as? CurrentSeasonCell {
                 let vc = segue.destinationViewController as! ListEpisodesViewController
-                vc.season = self.season
+                //vc.season = self.season
                 //vc.year = self.year
             //}
         }

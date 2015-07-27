@@ -167,25 +167,25 @@ extension UITableView {
 
 //MARK: - CustomNavigationController
 
-//MARK: - ShowViewController
+//MARK: - SeasonListViewController
 extension UIStoryboardSegue {
-    func selection() -> ShowViewController.Segue? {
+    func selection() -> SeasonListViewController.Segue? {
         if let identifier = self.identifier {
-            return ShowViewController.Segue(rawValue: identifier)
+            return SeasonListViewController.Segue(rawValue: identifier)
         }
         return nil
     }
 }
 
-extension ShowViewController { 
+extension SeasonListViewController { 
 
     enum Segue: String, Printable, SegueProtocol {
-        case current_season = "current_season"
+        case season_to_episodes = "season_to_episodes"
 
         var kind: SegueKind? {
             switch (self) {
-            case current_season:
-                return SegueKind(rawValue: "embed")
+            case season_to_episodes:
+                return SegueKind(rawValue: "show")
             default:
                 preconditionFailure("Invalid value")
                 break
@@ -194,8 +194,8 @@ extension ShowViewController {
 
         var destination: UIViewController.Type? {
             switch (self) {
-            case current_season:
-                return CurrentSeasonViewController.self
+            case season_to_episodes:
+                return ListEpisodesViewController.self
             default:
                 assertionFailure("Unknown destination")
                 return nil
@@ -207,6 +207,38 @@ extension ShowViewController {
     }
 
 }
+extension SeasonListViewController { 
+
+    enum Reusable: String, Printable, ReusableViewProtocol {
+        case Seasons = "Seasons"
+
+        var kind: ReusableKind? {
+            switch (self) {
+            case Seasons:
+                return ReusableKind(rawValue: "tableViewCell")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var viewType: UIView.Type? {
+            switch (self) {
+            case Seasons:
+                return CurrentSeasonCell.self
+            default:
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
+
+
+//MARK: - ShowViewController
 
 //MARK: - ShowListViewController
 extension UIStoryboardSegue {
@@ -221,11 +253,11 @@ extension UIStoryboardSegue {
 extension ShowListViewController { 
 
     enum Segue: String, Printable, SegueProtocol {
-        case shows_to_show = "shows_to_show"
+        case show_seasons = "show_seasons"
 
         var kind: SegueKind? {
             switch (self) {
-            case shows_to_show:
+            case show_seasons:
                 return SegueKind(rawValue: "show")
             default:
                 preconditionFailure("Invalid value")
@@ -235,8 +267,8 @@ extension ShowListViewController {
 
         var destination: UIViewController.Type? {
             switch (self) {
-            case shows_to_show:
-                return ShowViewController.self
+            case show_seasons:
+                return SeasonListViewController.self
             default:
                 assertionFailure("Unknown destination")
                 return nil
@@ -353,45 +385,6 @@ extension ListEpisodesViewController {
 
 
 //MARK: - CurrentSeasonViewController
-extension UIStoryboardSegue {
-    func selection() -> CurrentSeasonViewController.Segue? {
-        if let identifier = self.identifier {
-            return CurrentSeasonViewController.Segue(rawValue: identifier)
-        }
-        return nil
-    }
-}
-
-extension CurrentSeasonViewController { 
-
-    enum Segue: String, Printable, SegueProtocol {
-        case season_info = "season_info"
-
-        var kind: SegueKind? {
-            switch (self) {
-            case season_info:
-                return SegueKind(rawValue: "show")
-            default:
-                preconditionFailure("Invalid value")
-                break
-            }
-        }
-
-        var destination: UIViewController.Type? {
-            switch (self) {
-            case season_info:
-                return ListEpisodesViewController.self
-            default:
-                assertionFailure("Unknown destination")
-                return nil
-            }
-        }
-
-        var identifier: String? { return self.description } 
-        var description: String { return self.rawValue }
-    }
-
-}
 extension CurrentSeasonViewController { 
 
     enum Reusable: String, Printable, ReusableViewProtocol {
@@ -409,8 +402,6 @@ extension CurrentSeasonViewController {
 
         var viewType: UIView.Type? {
             switch (self) {
-            case CurrentSeason:
-                return CurrentSeasonCell.self
             default:
                 return nil
             }

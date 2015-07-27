@@ -85,5 +85,15 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
                     
             }
         }
+        
+        if segue.identifier == "show_seasons" {
+            if let cell = sender as? ShowCell,
+                indexPath = collectionView.indexPathForCell(cell){
+                    let s = shows[indexPath.item]
+                    let vc = segue.destinationViewController as! SeasonListViewController
+                    vc.id = s.identifiers.trakt
+                    vc.title = s.title
+            }
+        }
     }
 }

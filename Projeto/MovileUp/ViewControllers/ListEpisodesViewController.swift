@@ -28,14 +28,23 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
         
         if let s = self.season {
             self.title = "Season " + String(s.number)
-            http.getEpisodes(s.identifiers!.slug!, season: s.number,
+            
+            if let img = s.thumbImageURL {
+                self.backImage.kf_setImageWithURL(img)
+            }
+
+            http.getEpisodes(String(s.identifiers!.trakt), season: s.number,
                 completion: { [weak self] resultado in
                     if let e = resultado.value {
                         self?.episodes = e  // mudar depois
                         self?.tableView.reloadData()
+                        
+                        self?.year.text = "Season " + String(s.number)
                     }
                 
                 })
+            
+            print(self.episodes)
         }
     }
     

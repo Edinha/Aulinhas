@@ -28,7 +28,7 @@ private enum Router: URLRequestConvertible {
             case .Episode(let id, let season, let episode):
                 return ("shows/\(id)/seasons/\(season)/episodes/\(episode)", ["extended": "images,full"], .GET)
             case .Episodes(let id, let season):
-                return ("shows/\(id)/seasons/\(season)", ["extended": "images,full"], .GET)
+                return ("shows/\(id)/seasons/\(season)", nil, .GET)
             case .PopularShows():
                 return ("shows/popular", ["extended": "images,full"], .GET)
             case .Seasons(let id):
@@ -80,12 +80,7 @@ class TraktHTTPClient {
         manager.request(router).validate().responseJSON { (_, _, responseObject, error)  in
 
             if let json = responseObject as? [NSDictionary] {    
-                var values:[T] = []                
-                for dict in json {
-                    if let element = T.decode(dict) {
-                        values.append(element)
-                    }
-                }
+                let values = json.map {T.decode($0)}.filter { $0 != nil }.map {$0!}
             
                 completion?(Result.success(values))
             } else {

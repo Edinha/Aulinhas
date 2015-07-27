@@ -9,7 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MovileUp-BorderedView-BorderedView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileUp-BorderedView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MovileUp-Box.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MovileUp-FloatRatingView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,57 +77,72 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>032E24C13FD473A7A453E00F</key>
+		<key>0B4CA72F8AFE90AB336075DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>048824EB2A347DBF289AB011</key>
+		<key>377AEBE0D0467965DC6F1D37</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0A0A649E36121071A9F868E1</key>
+		<key>4F981F0C0E4FF22CA082A279</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>26F69534F18332929CEC6D08</key>
+		<key>50A087B4223EA618EBD1BE29</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E1AB2C94A143D17CEF34202</key>
+		<key>60CA472F6B5CE3C51CD4DEC2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3639F2F3503F68A4E38AC1EC</key>
+		<key>66B25A849D52A2168A271128</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>737CA89B14CAC86C31252FD5</key>
+		<key>6EBCC9B899A66DC747881B9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7F30B4603FDAD5C9F4BE8C45</key>
+		<key>7466D259051DEDCF4D1207EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE1FC830BAED7B2BB61A5DD1</key>
+		<key>76DFC1153D94825F5E8296A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D540AA2BF2C95FF72AD3B753</key>
+		<key>7C1B1BD39950FE6823FCDA42</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6EA458B74EFFD52D1E82A3E</key>
+		<key>97D2E6DF398A036169988870</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2263AF419F510DA7123EC70</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDE1EB8B64B15571C1CEEB86</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EA66F813599531A51060081C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

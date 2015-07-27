@@ -8,18 +8,18 @@
 
 import Foundation
 
-struct Season {
+//struct Season {
     
-    let url : String
-    let name: String
+//    let url : String
+//    let name: String
     
-    static func loadSeasons() -> [Season]{
+//    static func loadSeasons() -> [Season]{
         
-        let s = [("clock", "Clock"), ("home-screen", "Screen"),
-        ("like-heart-on", "Heart"), ("poster-mini", "Poster Mini"),
-        ("poster", "Poster"), ("bg", "Background")]
+//        let s = [("clock", "Clock"), ("home-screen", "Screen"),
+//        ("like-heart-on", "Heart"), ("poster-mini", "Poster Mini"),
+//        ("poster", "Poster"), ("bg", "Background")]
         
         
-        return s.map{Season(url: $0.0, name: $0.1)}
-    }
-}
+//        return s.map{Season(url: $0.0, name: $0.1)}
+//    }
+//}

@@ -12,11 +12,23 @@
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
 #define COCOAPODS_VERSION_PATCH_Alamofire 3
 
+// BorderedView
+#define COCOAPODS_POD_AVAILABLE_BorderedView
+#define COCOAPODS_VERSION_MAJOR_BorderedView 0
+#define COCOAPODS_VERSION_MINOR_BorderedView 1
+#define COCOAPODS_VERSION_PATCH_BorderedView 0
+
 // Box
 #define COCOAPODS_POD_AVAILABLE_Box
 #define COCOAPODS_VERSION_MAJOR_Box 1
 #define COCOAPODS_VERSION_MINOR_Box 2
 #define COCOAPODS_VERSION_PATCH_Box 2
+
+// FloatRatingView
+#define COCOAPODS_POD_AVAILABLE_FloatRatingView
+#define COCOAPODS_VERSION_MAJOR_FloatRatingView 1
+#define COCOAPODS_VERSION_MINOR_FloatRatingView 0
+#define COCOAPODS_VERSION_PATCH_FloatRatingView 0
 
 // ISO8601DateFormatter
 #define COCOAPODS_POD_AVAILABLE_ISO8601DateFormatter

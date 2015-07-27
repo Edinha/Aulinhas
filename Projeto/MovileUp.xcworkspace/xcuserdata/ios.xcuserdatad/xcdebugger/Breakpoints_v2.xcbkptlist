@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/ViewControllers/ListEpisodesViewController.swift"
-            timestampString = "459461266.41014"
+            timestampString = "459720347.036436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "ListEpisodesViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -30,9 +30,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "all()"
-            landmarkType = "5">
+            endingLineNumber = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -118,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/Models/TraktHTTPClient.swift"
-            timestampString = "459373413.712441"
+            timestampString = "459714830.735306"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "getPopularShows(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -166,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovileUp/Models/TraktHTTPClient.swift"
-            timestampString = "459373413.712441"
+            timestampString = "459714830.735306"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "getJSONArray(_:completion:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -189,6 +187,53 @@
             endingLineNumber = "83"
             landmarkName = "getJSONArray(_:completion:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "partial apply forwarder for MovileUp.TraktHTTPClient.((getJSONArray in _658ED5BAEE926C60A6A99804C5C6E602) (MovileUp.TraktHTTPClient) -&gt; &lt;A : TraktModels.JSONDecodable&gt;(MovileUp.(Router in _658ED5BAEE926C60A6A99804C5C6E602), completion : Swift.Optional&lt;(Result.Result&lt;Swift.Array&lt;A&gt;, Swift.Optional&lt;ObjectiveC.NSError&gt;&gt;) -&gt; ()&gt;) -&gt; ()).(closure #1).(closure #2)"
+                  moduleName = "MovileUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ios/MovileUp/MovileUp/Models/TraktHTTPClient.swift"
+                  timestampString = "459715442.171117"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MovileUp.TraktHTTPClient.((getJSONArray in _658ED5BAEE926C60A6A99804C5C6E602) (MovileUp.TraktHTTPClient) -&gt; &lt;A : TraktModels.JSONDecodable&gt;(MovileUp.(Router in _658ED5BAEE926C60A6A99804C5C6E602), completion : Swift.Optional&lt;(Result.Result&lt;Swift.Array&lt;A&gt;, Swift.Optional&lt;ObjectiveC.NSError&gt;&gt;) -&gt; ()&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "MovileUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ios/MovileUp/MovileUp/Models/TraktHTTPClient.swift"
+                  timestampString = "459715442.171391"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MovileUp.TraktHTTPClient.((getJSONArray in _658ED5BAEE926C60A6A99804C5C6E602) (MovileUp.TraktHTTPClient) -&gt; &lt;A : TraktModels.JSONDecodable&gt;(MovileUp.(Router in _658ED5BAEE926C60A6A99804C5C6E602), completion : Swift.Optional&lt;(Result.Result&lt;Swift.Array&lt;A&gt;, Swift.Optional&lt;ObjectiveC.NSError&gt;&gt;) -&gt; ()&gt;) -&gt; ()).(closure #1).(closure #3)"
+                  moduleName = "MovileUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ios/MovileUp/MovileUp/Models/TraktHTTPClient.swift"
+                  timestampString = "459715442.171583"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "66">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -261,12 +306,26 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MovileUp/ViewControllers/ShowViewController.swift"
-            timestampString = "459463078.502729"
+            filePath = "MovileUp/Models/TraktHTTPClient.swift"
+            timestampString = "459715300.967497"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "35"
+            endingLineNumber = "35">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovileUp/ViewControllers/SeasonListViewController.swift"
+            timestampString = "459720046.272801"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
