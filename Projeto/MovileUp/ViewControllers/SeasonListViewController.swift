@@ -26,16 +26,20 @@ class SeasonListViewController : UIViewController, UITableViewDelegate, UITableV
             http.getSeasons(String(i) , completion: { [weak self] resultado in
                 if let value = resultado.value {
                     self?.seasons = value
+
+                    for var indice = 0; indice < self?.seasons.count; indice++ {
+                        if self?.seasons[indice].number == 0 {
+                            self?.seasons.removeAtIndex(indice)
+                        }
+                    }
+                    
+                    sort(&self!.seasons, { a, b in
+                        return a.number > b.number
+                    })
+                    
                     self?.tableView.reloadData()
                 }
             })
-            
-            for var indice = 0; i < seasons.count; indice++ {
-                if seasons[indice].number == 0 {
-                    seasons.removeAtIndex(indice)
-                }
-            }
-            
         }
     }
     
@@ -63,6 +67,7 @@ class SeasonListViewController : UIViewController, UITableViewDelegate, UITableV
                     let s = seasons[indexPath.row]
                     let vc = segue.destinationViewController as! ListEpisodesViewController
                     vc.season = s
+                    print(s.identifiers!.slug)
             }
         }
     }

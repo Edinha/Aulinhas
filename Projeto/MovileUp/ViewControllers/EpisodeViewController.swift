@@ -27,11 +27,16 @@ class EpisodeViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textOverview.textContainer.lineFragmentPadding = 0
-        textOverview.textContainerInset = UIEdgeInsetsZero
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         if let e = self.episode {
+            
+            textOverview.textContainer.lineFragmentPadding = 0
+            textOverview.textContainerInset = UIEdgeInsetsZero
+            
             episodeTitle.text = e.title
             textOverview.text = e.overview
             
@@ -39,7 +44,7 @@ class EpisodeViewController : UIViewController {
             date.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
             time.text = date.stringFromDate(e.firstAired!)
             channel.text = ""
-
+            
             if let img = e.screenshot?.fullImageURL ?? e.screenshot?.mediumImageURL ?? e.screenshot?.thumbImageURL{
                 imageEpisode.kf_setImageWithURL(img)
             }

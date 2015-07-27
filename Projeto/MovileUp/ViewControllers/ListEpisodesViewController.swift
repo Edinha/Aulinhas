@@ -33,18 +33,18 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
                 self.backImage.kf_setImageWithURL(img)
             }
 
+            print(s.identifiers!.slug)
             http.getEpisodes(String(s.identifiers!.trakt), season: s.number,
-                completion: { [weak self] resultado in
-                    if let e = resultado.value {
-                        self?.episodes = e  // mudar depois
-                        self?.tableView.reloadData()
-                        
+                completion: { [weak self] r in
+                    if let e = r.value {
+                        self?.episodes = e
                         self?.year.text = "Season " + String(s.number)
+                        
+                       self?.tableView.reloadData()
                     }
-                
+                    
                 })
             
-            print(self.episodes)
         }
     }
     
@@ -60,7 +60,7 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
         let cell = tableView.dequeueReusableCellWithIdentifier(iden, forIndexPath: indexPath) as! episodeTableCell
         
         cell.loadEpisode(episodes[indexPath.row])
-  
+        
         return cell
     }
     

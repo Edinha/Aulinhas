@@ -28,7 +28,7 @@ private enum Router: URLRequestConvertible {
             case .Episode(let id, let season, let episode):
                 return ("shows/\(id)/seasons/\(season)/episodes/\(episode)", ["extended": "images,full"], .GET)
             case .Episodes(let id, let season):
-                return ("shows/\(id)/seasons/\(season)", nil, .GET)
+                return ("shows/\(id)/seasons/\(season)/episodes", ["extended": "images,full"], .GET)
             case .PopularShows():
                 return ("shows/popular", ["extended": "images,full"], .GET)
             case .Seasons(let id):
