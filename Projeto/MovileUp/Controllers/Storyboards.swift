@@ -239,6 +239,45 @@ extension SeasonListViewController {
 
 
 //MARK: - ShowViewController
+extension UIStoryboardSegue {
+    func selection() -> ShowViewController.Segue? {
+        if let identifier = self.identifier {
+            return ShowViewController.Segue(rawValue: identifier)
+        }
+        return nil
+    }
+}
+
+extension ShowViewController { 
+
+    enum Segue: String, Printable, SegueProtocol {
+        case seasons_in_show = "seasons_in_show"
+
+        var kind: SegueKind? {
+            switch (self) {
+            case seasons_in_show:
+                return SegueKind(rawValue: "show")
+            default:
+                preconditionFailure("Invalid value")
+                break
+            }
+        }
+
+        var destination: UIViewController.Type? {
+            switch (self) {
+            case seasons_in_show:
+                return SeasonListViewController.self
+            default:
+                assertionFailure("Unknown destination")
+                return nil
+            }
+        }
+
+        var identifier: String? { return self.description } 
+        var description: String { return self.rawValue }
+    }
+
+}
 
 //MARK: - ShowListViewController
 extension UIStoryboardSegue {

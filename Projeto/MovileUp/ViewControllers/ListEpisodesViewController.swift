@@ -10,6 +10,7 @@ import UIKit
 import Result
 import TraktModels
 import Kingfisher
+import FloatRatingView
 
 class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,6 +18,9 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
     @IBOutlet private weak var frontImage: UIImageView!
     @IBOutlet private weak var backImage: UIImageView!
     @IBOutlet private weak var year: UILabel!
+    
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var rating: FloatRatingView!
     
     let http = TraktHTTPClient()
     private var episodes:[TraktModels.Episode] = []
@@ -29,13 +33,17 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let s = self.season, img = s.thumbImageURL {
+            self.frontImage.kf_setImageWithURL(img)
+            self.backImage.kf_setImageWithURL(img)
+            self.rating.rating = s.rating!
+            self.ratingLabel.text = String(format: "%.1f", s.rating!)
+        }
+        
         if let id = self.id, n = self.number {
-            self.title = "Season " + String(n)
+            self.title    = "Season " + String(n)
+            self.year.text =  "Season " + String(n)
             
-            if let img = self.season?.thumbImageURL {
-                self.backImage.kf_setImageWithURL(img)
-            }
-
             http.getEpisodes(id, season: n,
                 completion: { [weak self] r in
                     if let e = r.value {
@@ -44,7 +52,6 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
                     }
                     
                 })
-            
         }
     }
     
