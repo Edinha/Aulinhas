@@ -10,13 +10,15 @@ import UIKit
 import TraktModels
 import Kingfisher
 import FloatRatingView
+import TagListView
+
 class ShowViewController : UIViewController {
     
     
     @IBOutlet private weak var image: UIImageView!
     @IBOutlet private weak var year: UILabel!
     @IBOutlet private weak var storyline: UITextView!
-    
+    @IBOutlet private weak var genres: TagListView!
     
     @IBOutlet private weak var favorites: UIButton!
     @IBOutlet private weak var ratingLabel: UILabel!
@@ -39,6 +41,10 @@ class ShowViewController : UIViewController {
             self.rating.rating = s.rating!
             self.ratingLabel.text = String(format: "%.1f", s.rating!)
             
+            for g in s.genres! {
+                genres.addTag(g)
+            }
+            
             let img = s.poster?.fullImageURL ?? s.poster?.mediumImageURL ?? s.poster?.thumbImageURL
 
             if let i = img {
@@ -56,11 +62,11 @@ class ShowViewController : UIViewController {
         if manager.isFavorited(id!) {
             manager.removeIdentifier(id!)
             favorites.setImage(UIImage(named: "like-heart"), forState: UIControlState.Normal)
-            print("unfavorited\n")
+            //print("unfavorited\n")
         } else {
             manager.addIdentifier(id!)
             favorites.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
-            print("favorited\n")
+            //print("favorited\n")
         }
     }
     

@@ -9,6 +9,7 @@ PODS:
   - OHHTTPStubs (4.0.2)
   - Result (0.4.4):
     - Box (~> 1.2)
+  - TagListView (0.1.4)
   - TraktModels (0.1.0):
     - ISO8601DateFormatter (~> 0.7)
 
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - Nimble
   - OHHTTPStubs
   - Result
+  - TagListView
   - TraktModels (from `https://github.com/marcelofabri/TraktModels.git`)
 
 EXTERNAL SOURCES:
@@ -46,6 +48,7 @@ SPEC CHECKSUMS:
   Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
   OHHTTPStubs: dbd1957d414659783e07b49c961940b7564c23d9
   Result: b44f6bc8762bbffaf2c5df58f2c7d12c3496ced8
+  TagListView: 86fcd7616973096aeaaf71bf774eecacf483c1fb
   TraktModels: bb7f4bbee75805f72747e492d5ca6c9583c1dfcb
 
 COCOAPODS: 0.37.2

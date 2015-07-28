@@ -55,6 +55,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'ISO8601DateFormatter.framework'
   install_framework 'Kingfisher.framework'
   install_framework 'Result.framework'
+  install_framework 'TagListView.framework'
   install_framework 'TraktModels.framework'
 fi
 if [[ "$CONFIGURATION" == "Debug" ]]; then
@@ -65,5 +66,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'ISO8601DateFormatter.framework'
   install_framework 'Kingfisher.framework'
   install_framework 'Result.framework'
+  install_framework 'TagListView.framework'
   install_framework 'TraktModels.framework'
 fi

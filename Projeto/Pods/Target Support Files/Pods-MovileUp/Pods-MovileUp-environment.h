@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_Result 4
 #define COCOAPODS_VERSION_PATCH_Result 4
 
+// TagListView
+#define COCOAPODS_POD_AVAILABLE_TagListView
+#define COCOAPODS_VERSION_MAJOR_TagListView 0
+#define COCOAPODS_VERSION_MINOR_TagListView 1
+#define COCOAPODS_VERSION_PATCH_TagListView 4
+
 // TraktModels
 #define COCOAPODS_POD_AVAILABLE_TraktModels
 #define COCOAPODS_VERSION_MAJOR_TraktModels 0

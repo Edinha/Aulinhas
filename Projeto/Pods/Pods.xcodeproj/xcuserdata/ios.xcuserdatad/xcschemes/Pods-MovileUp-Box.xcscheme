@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6EBCC9B899A66DC747881B9F"
+               BlueprintIdentifier = "22C3C93F4AA0B1E645E33808"
                BuildableName = "Box.framework"
                BlueprintName = "Pods-MovileUp-Box"
                ReferencedContainer = "container:Pods.xcodeproj">

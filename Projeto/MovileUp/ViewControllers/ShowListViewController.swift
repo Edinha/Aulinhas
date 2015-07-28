@@ -13,13 +13,26 @@ import TraktModels
 class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICollectionViewDataSource{
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var listShows: UISegmentedControl!
     
     let http = TraktHTTPClient()
-    
-    private var shows:[TraktModels.Show] = []//Show.loadShow()
+    var manager = FavoriteManager()
+    private var shows:[TraktModels.Show] = []
+    var favorites:[TraktModels.Show] = []
+    var modeShow: [TraktModels.Show]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for f in manager.favoritesIdentifiers{
+            http.getShow(String(f), completion: {
+                [weak self] resultado in
+                if let value = resultado.value {
+                    self?.favorites.append(value)
+                    print(value)
+                }
+            })
+        }
         
         http.getPopularShows({ [weak self] resultado in
             if let s = resultado.value {
@@ -27,6 +40,8 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
                 self?.collectionView.reloadData()
             }
         })
+        
+        self.modeShow = self.shows
     }
     
     func numberOfSectionsInCollectionView(tableView: UICollectionView) -> Int { return 1}
@@ -39,7 +54,7 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
         
         let cell = colView.dequeueReusableCell(Reusable.Show, forIndexPath: indexPath) as! ShowCell
         
-        cell.loadShow(shows[indexPath.item])
+        cell.loadShow(modeShow![indexPath.item])
         
         return cell
     }
@@ -72,6 +87,19 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
             
             //presentViewController(alertController, animated: true, completion: nil)
             
+    }
+    
+    
+    @IBAction func listByType(sender: AnyObject) {
+        
+        if listShows.selectedSegmentIndex == 0 {
+            modeShow = shows
+        } else {
+            modeShow = favorites
+        }
+        
+        
+        collectionView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

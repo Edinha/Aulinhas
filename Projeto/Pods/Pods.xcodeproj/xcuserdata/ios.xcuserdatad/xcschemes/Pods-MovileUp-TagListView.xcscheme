@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1CFE107E05FF38C03D40EBD"
-               BuildableName = "Result.framework"
-               BlueprintName = "Pods-MovileUp-Result"
+               BlueprintIdentifier = "BC1457F7B3154D7AEC0A93F3"
+               BuildableName = "TagListView.framework"
+               BlueprintName = "Pods-MovileUp-TagListView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
