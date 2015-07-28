@@ -15,15 +15,15 @@ class SeasonListViewController : UIViewController, UITableViewDelegate, UITableV
     @IBOutlet private var tableView: UITableView!
     
     var seasons: [TraktModels.Season] = []
-    var id: Int? = nil
+    var id: String? = nil
     let http = TraktHTTPClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        if let i = self.id {
+        if let slug = self.id {
 
-            http.getSeasons(String(i) , completion: { [weak self] resultado in
+            http.getSeasons(slug , completion: { [weak self] resultado in
                 if let value = resultado.value {
                     self?.seasons = value
 
@@ -66,8 +66,9 @@ class SeasonListViewController : UIViewController, UITableViewDelegate, UITableV
                     
                     let s = seasons[indexPath.row]
                     let vc = segue.destinationViewController as! ListEpisodesViewController
+                    vc.id = self.id
+                    vc.number = s.number
                     vc.season = s
-                    print(s.identifiers!.slug)
             }
         }
     }

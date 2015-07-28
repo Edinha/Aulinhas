@@ -91,7 +91,7 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
                 indexPath = collectionView.indexPathForCell(cell){
                     let s = shows[indexPath.item]
                     let vc = segue.destinationViewController as! SeasonListViewController
-                    vc.id = s.identifiers.trakt
+                    vc.id = s.identifiers.slug
                     vc.title = s.title
             }
         }

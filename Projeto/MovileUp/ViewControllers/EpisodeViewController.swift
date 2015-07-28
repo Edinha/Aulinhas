@@ -23,33 +23,42 @@ class EpisodeViewController : UIViewController {
     
     @IBOutlet private weak var time: UILabel!
     
-    var episode: TraktModels.Episode? = nil
+    //var episode:TraktModels.Episode? = nil
+    
+    var id: String? = nil
+    var number: Int? = nil
+    var epi: Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         
-        if let e = self.episode {
+        if let epi = self.epi, n = self.number, slug = self.id {
             
             textOverview.textContainer.lineFragmentPadding = 0
             textOverview.textContainerInset = UIEdgeInsetsZero
             
-            episodeTitle.text = e.title
-            textOverview.text = e.overview
+            let http = TraktHTTPClient()
+            http.getEpisode(slug, season: n, episode: epi, completion: { [weak self] resultado in
+                if let value = resultado.value {
+                    let e = value
+                    self?.episodeTitle.text = e.title
+                    self?.textOverview.text = e.overview
+                    
+                    let date = NSDateFormatter()
+                    date.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
+                    self?.time.text = date.stringFromDate(e.firstAired!)
+                    self?.channel.text = ""
+                    
+                    if let img = e.screenshot?.fullImageURL ?? e.screenshot?.mediumImageURL ?? e.screenshot?.thumbImageURL{
+                        self?.imageEpisode.kf_setImageWithURL(img)
+                    }
+                    
+                    self?.title = "Episode " + String(e.number)
+                }
+            })
             
-            let date = NSDateFormatter()
-            date.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
-            time.text = date.stringFromDate(e.firstAired!)
-            channel.text = ""
-            
-            if let img = e.screenshot?.fullImageURL ?? e.screenshot?.mediumImageURL ?? e.screenshot?.thumbImageURL{
-                imageEpisode.kf_setImageWithURL(img)
-            }
-            
-            self.title = "Episode " + String(e.number)
+            //self.reloadInputViews()
         }
     }
+    
 }

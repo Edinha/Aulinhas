@@ -9,6 +9,7 @@
 import UIKit
 import Result
 import TraktModels
+import Kingfisher
 
 class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,29 +19,28 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
     @IBOutlet private weak var year: UILabel!
     
     let http = TraktHTTPClient()
-    
     private var episodes:[TraktModels.Episode] = []
+    var season:TraktModels.Season? = nil
     
-    var season: TraktModels.Season? = nil
+    var id: String? = nil
+    var number: Int? = nil
+    //var img: NSURL? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let s = self.season {
-            self.title = "Season " + String(s.number)
+        if let id = self.id, n = self.number {
+            self.title = "Season " + String(n)
             
-            if let img = s.thumbImageURL {
+            if let img = self.season?.thumbImageURL {
                 self.backImage.kf_setImageWithURL(img)
             }
 
-            print(s.identifiers!.slug)
-            http.getEpisodes(String(s.identifiers!.trakt), season: s.number,
+            http.getEpisodes(id, season: n,
                 completion: { [weak self] r in
                     if let e = r.value {
-                        self?.episodes = e
-                        self?.year.text = "Season " + String(s.number)
-                        
-                       self?.tableView.reloadData()
+                        self?.episodes = e  
+                        self?.tableView.reloadData()
                     }
                     
                 })
@@ -87,7 +87,10 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
                 
                     let e = episodes[indexPath.row]
                     let vc = segue.destinationViewController as! EpisodeViewController
-                    vc.episode = e
+
+                    vc.epi = e.number
+                    vc.number = e.seasonNumber
+                    vc.id = self.id
                     
             }
         }
