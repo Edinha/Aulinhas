@@ -21,6 +21,7 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var rating: FloatRatingView!
+    @IBOutlet private weak var favorite: UIButton!
     
     let http = TraktHTTPClient()
     private var episodes:[TraktModels.Episode] = []
@@ -28,17 +29,31 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
     
     var id: String? = nil
     var number: Int? = nil
-    //var img: NSURL? = nil
+    var identifier: Int? = nil
+    var manager = FavoriteManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let s = self.season, img = s.thumbImageURL {
-            self.frontImage.kf_setImageWithURL(img)
-            self.backImage.kf_setImageWithURL(img)
+        if let s = self.season {
+            
+            if manager.isFavorited(s.identifiers!.trakt) {
+                self.favorite.imageView?.image = UIImage(named: "like-heart-on")
+            }
+            
+            if let i = s.thumbImageURL {
+                self.backImage.kf_setImageWithURL(i)
+            }
+            
+            if let img = s.poster?.fullImageURL ?? s.poster?.mediumImageURL ?? s.poster?.thumbImageURL{
+                self.frontImage.kf_setImageWithURL(img)
+            }
+            
             self.rating.rating = s.rating!
             self.ratingLabel.text = String(format: "%.1f", s.rating!)
         }
+        
+        
         
         if let id = self.id, n = self.number {
             self.title    = "Season " + String(n)
@@ -73,7 +88,7 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
+        
             /*let cell = tableView.cellForRowAtIndexPath(indexPath)
             cell!.backgroundColor = UIColor.blueColor()
             
@@ -85,6 +100,21 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
             
             presentViewController(alertController, animated: true, completion: nil) */
             
+    }
+    
+    
+    @IBAction func addToFavorites(sender: AnyObject) {
+        //let img = UIImage(named: "like-heart")
+        let id = self.season?.identifiers?.trakt
+        
+        if manager.isFavorited(id!) {
+            manager.addIdentifier(id!)
+            self.favorite.imageView?.image = UIImage(named: "like-heart-on")
+        } else {
+            manager.removeIdentifier(id!)
+            self.favorite.imageView?.image = UIImage(named: "like-heart")
+        }
+
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

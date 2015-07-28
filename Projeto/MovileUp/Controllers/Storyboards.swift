@@ -251,11 +251,11 @@ extension UIStoryboardSegue {
 extension ShowViewController { 
 
     enum Segue: String, Printable, SegueProtocol {
-        case seasons_in_show = "seasons_in_show"
+        case show_seasons = "show_seasons"
 
         var kind: SegueKind? {
             switch (self) {
-            case seasons_in_show:
+            case show_seasons:
                 return SegueKind(rawValue: "show")
             default:
                 preconditionFailure("Invalid value")
@@ -265,7 +265,7 @@ extension ShowViewController {
 
         var destination: UIViewController.Type? {
             switch (self) {
-            case seasons_in_show:
+            case show_seasons:
                 return SeasonListViewController.self
             default:
                 assertionFailure("Unknown destination")
@@ -292,11 +292,11 @@ extension UIStoryboardSegue {
 extension ShowListViewController { 
 
     enum Segue: String, Printable, SegueProtocol {
-        case show_seasons = "show_seasons"
+        case show_show = "show_show"
 
         var kind: SegueKind? {
             switch (self) {
-            case show_seasons:
+            case show_show:
                 return SegueKind(rawValue: "show")
             default:
                 preconditionFailure("Invalid value")
@@ -306,8 +306,8 @@ extension ShowListViewController {
 
         var destination: UIViewController.Type? {
             switch (self) {
-            case show_seasons:
-                return SeasonListViewController.self
+            case show_show:
+                return ShowViewController.self
             default:
                 assertionFailure("Unknown destination")
                 return nil

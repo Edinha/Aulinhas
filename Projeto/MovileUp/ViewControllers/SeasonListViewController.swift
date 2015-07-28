@@ -71,6 +71,8 @@ class SeasonListViewController : UIViewController, UITableViewDelegate, UITableV
                     vc.season = s
             }
         }
+        
+        
     }
 
     

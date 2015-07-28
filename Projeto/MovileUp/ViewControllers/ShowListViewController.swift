@@ -75,12 +75,13 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "shows_to_show" {
+        if segue.identifier == "show_show" {
             if let cell = sender as? ShowCell,
                 indexPath = collectionView.indexPathForCell(cell){
                     
                     let s = shows[indexPath.item]
                     let vc = segue.destinationViewController as! ShowViewController
+                    vc.id = s.identifiers.trakt
                     vc.show = s
                     
             }

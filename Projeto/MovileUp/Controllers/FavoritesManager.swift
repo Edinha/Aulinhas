@@ -23,24 +23,30 @@ class FavoriteManager {
         return []
     }()
     
-    func addIndentifier(identifier : Int) {
+    func addIdentifier(identifier : Int) {
         favoritesIdentifiers.insert(identifier)
-        
+        save()
+    }
+    
+    func removeIdentifier(identifier: Int) {
+        favoritesIdentifiers.remove(identifier)
+        save()
+    }
+    
+    func save() {
         // acho q seria isso, mas esse codigo nao iria aqui :P
         let pers = NSUserDefaults.standardUserDefaults()
         var vet:[Int] = []
         
         for f in favoritesIdentifiers {
             vet.append(f)
-        }        
+        }
         
         pers.setObject(vet, forKey: "favorites")
-        
+        pers.synchronize()
     }
     
-    func removeIdentifier(identifier: Int) {
-        favoritesIdentifiers.remove(identifier)
+    func isFavorited(identifier: Int) -> Bool {
+        return favoritesIdentifiers.contains(identifier)
     }
-    
-
 }
