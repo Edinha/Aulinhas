@@ -18,6 +18,7 @@ private enum Router: URLRequestConvertible {
     case Episodes(String, Int)
     case PopularShows()
     case Seasons(String)
+    case ShowPage(Int, Int)
     
     // MARK: URLRequestConvertible
     var URLRequest: NSURLRequest {
@@ -33,6 +34,8 @@ private enum Router: URLRequestConvertible {
                 return ("shows/popular", ["extended": "images,full", "limit": "50"], .GET)
             case .Seasons(let id):
                 return ("shows/\(id)/seasons", ["extended": "images,full"], .GET)
+            case .ShowPage(let limit, let page):
+                return ("shows/popular", ["extended": "images,full", "limit": "\(limit)", "page": "\(page)"], .GET)
             }
         }()
     
@@ -109,4 +112,7 @@ class TraktHTTPClient {
         getJSONArray(Router.Episodes(showId, season), completion: completion)
     }
     
+    func getShowsPage(limit: Int, page: Int, completion: ((Result<[TraktModels.Show], NSError?>) -> Void)?) {
+        getJSONArray(Router.ShowPage(limit, page), completion: completion)
+    }
 };

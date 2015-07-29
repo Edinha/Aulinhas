@@ -19,6 +19,7 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
     private var shows:[TraktModels.Show] = []
     var favorites:[TraktModels.Show] = []
     var modeShow: [TraktModels.Show] = []
+    var page = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
             navBar.backgroundColor = UIColor(red: 244/255, green: 128/255, blue: 55/255, alpha: 1)
             navBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
             navBar.shadowImage = UIImage()
-            navBar.tintColor = UIColor(red: 244/255, green: 128/255, blue: 55/255, alpha: 1)
+            navBar.tintColor = UIColor.whiteColor() //UIColor(red: 244/255, green: 128/255, blue: 55/255, alpha: 1)
             navBar.translucent = false
             navBar.barStyle = .Black
         }
@@ -55,6 +56,10 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
         let cell = colView.dequeueReusableCell(Reusable.Show, forIndexPath: indexPath) as! ShowCell
         
         cell.loadShow(modeShow[indexPath.item])
+        
+        if indexPath.item > page * 45 {
+            loadAnotherPage()
+        }
         
         return cell
     }
@@ -100,6 +105,19 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
         }
         
         collectionView.reloadData()
+    }
+    
+    func loadAnotherPage() {
+        page++
+        
+        http.getShowsPage(50, page: page, completion: { [weak self] resultado in
+            
+            if let value = resultado.value {
+                self?.shows = self!.shows + value
+                self?.modeShow = self!.shows
+                self?.collectionView.reloadData()
+            }
+        })
     }
     
     func updateFavorites() {
