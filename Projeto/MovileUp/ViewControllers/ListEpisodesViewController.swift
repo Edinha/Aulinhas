@@ -108,7 +108,7 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
                     vc.epi = e.number
                     vc.number = e.seasonNumber
                     vc.id = self.id
-                    
+                    vc.episode = e
             }
         }
     }

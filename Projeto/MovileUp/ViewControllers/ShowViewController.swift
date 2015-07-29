@@ -94,7 +94,7 @@ class ShowViewController : UIViewController {
                 let s = show!
                 let vc = segue.destinationViewController as! SeasonListViewController
                 vc.id = s.identifiers.slug
-                vc.title = s.title
+                vc.title = s.title + " Seasons"
             
         }
     }

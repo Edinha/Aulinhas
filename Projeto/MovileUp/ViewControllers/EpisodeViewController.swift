@@ -23,7 +23,7 @@ class EpisodeViewController : UIViewController {
     
     @IBOutlet private weak var time: UILabel!
     
-    //var episode:TraktModels.Episode? = nil
+    var episode:TraktModels.Episode? = nil
     
     var id: String? = nil
     var number: Int? = nil
@@ -32,32 +32,24 @@ class EpisodeViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let epi = self.epi, n = self.number, slug = self.id {
+        if let epi = self.epi, n = self.number, slug = self.id, e = self.episode {
             
             textOverview.textContainer.lineFragmentPadding = 0
             textOverview.textContainerInset = UIEdgeInsetsZero
             
-            let http = TraktHTTPClient()
-            http.getEpisode(slug, season: n, episode: epi, completion: { [weak self] resultado in
-                if let value = resultado.value {
-                    let e = value
-                    self?.episodeTitle.text = e.title
-                    self?.textOverview.text = e.overview
-                    
-                    let date = NSDateFormatter()
-                    date.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
-                    self?.time.text = date.stringFromDate(e.firstAired!)
-                    self?.channel.text = ""
-                    
-                    if let img = e.screenshot?.fullImageURL ?? e.screenshot?.mediumImageURL ?? e.screenshot?.thumbImageURL{
-                        self?.imageEpisode.kf_setImageWithURL(img)
-                    }
-                    
-                    self?.title = "Episode " + String(e.number)
-                }
-            })
+            self.title = "Episode " + String(n)
+            self.episodeTitle.text = e.title
+            self.textOverview.text = e.overview
             
-            //self.reloadInputViews()
+            let date = NSDateFormatter()
+            date.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
+            self.time.text = date.stringFromDate(e.firstAired!)
+            self.channel.text = ""
+            
+            if let img = e.screenshot?.fullImageURL ?? e.screenshot?.mediumImageURL ?? e.screenshot?.thumbImageURL{
+                self.imageEpisode.kf_setImageWithURL(img)
+            }
+
         }
     }
     
