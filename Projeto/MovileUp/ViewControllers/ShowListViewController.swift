@@ -16,45 +16,35 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
     @IBOutlet private weak var listShows: UISegmentedControl!
     
     let http = TraktHTTPClient()
-    var manager = FavoriteManager()
     private var shows:[TraktModels.Show] = []
     var favorites:[TraktModels.Show] = []
-    var modeShow: [TraktModels.Show]? = nil
+    var modeShow: [TraktModels.Show] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for f in manager.favoritesIdentifiers{
-            http.getShow(String(f), completion: {
-                [weak self] resultado in
-                if let value = resultado.value {
-                    self?.favorites.append(value)
-                    print(value)
-                }
-            })
-        }
-        
         http.getPopularShows({ [weak self] resultado in
             if let s = resultado.value {
                 self?.shows = s
+                self?.modeShow = s
                 self?.collectionView.reloadData()
             }
         })
         
-        self.modeShow = self.shows
+        //self.modeShow = self.shows
     }
     
     func numberOfSectionsInCollectionView(tableView: UICollectionView) -> Int { return 1}
     
     func collectionView(colView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shows.count
+        return modeShow.count
     }
     
     func collectionView(colView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = colView.dequeueReusableCell(Reusable.Show, forIndexPath: indexPath) as! ShowCell
         
-        cell.loadShow(modeShow![indexPath.item])
+        cell.loadShow(modeShow[indexPath.item])
         
         return cell
     }
@@ -95,11 +85,17 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
         if listShows.selectedSegmentIndex == 0 {
             modeShow = shows
         } else {
-            modeShow = favorites
+            updateFavorites()
+            
         }
         
-        
         collectionView.reloadData()
+    }
+    
+    func updateFavorites() {
+        let manager = FavoriteManager()
+        
+        modeShow = shows.filter { manager.favoritesIdentifiers.contains($0.identifiers.trakt) }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -107,7 +103,7 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
             if let cell = sender as? ShowCell,
                 indexPath = collectionView.indexPathForCell(cell){
                     
-                    let s = shows[indexPath.item]
+                    let s = modeShow[indexPath.item]
                     let vc = segue.destinationViewController as! ShowViewController
                     vc.id = s.identifiers.trakt
                     vc.show = s
@@ -118,7 +114,7 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
         if segue.identifier == "show_seasons" {
             if let cell = sender as? ShowCell,
                 indexPath = collectionView.indexPathForCell(cell){
-                    let s = shows[indexPath.item]
+                    let s = modeShow[indexPath.item]
                     let vc = segue.destinationViewController as! SeasonListViewController
                     vc.id = s.identifiers.slug
                     vc.title = s.title

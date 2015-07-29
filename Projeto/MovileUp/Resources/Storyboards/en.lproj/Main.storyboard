@@ -820,16 +820,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRl-jS-rGq">
-                                <rect key="frame" x="178" y="127" width="34" height="30"/>
-                                <state key="normal" image="like-heart">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addToFavorites:" destination="FZt-5z-E4N" eventType="touchUpInside" id="D4m-xN-CSH"/>
-                                    <action selector="addToFavorites:" destination="oji-Ge-2af" eventType="touchUpInside" id="mNt-iU-wIr"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -838,7 +828,6 @@
                             <constraint firstItem="HZL-sn-Jpi" firstAttribute="leading" secondItem="vqj-xc-EM9" secondAttribute="trailing" constant="-213" id="2xD-YV-bbB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fde-R6-bnx" secondAttribute="trailing" constant="-16" id="4xd-d7-bLA"/>
                             <constraint firstItem="vqj-xc-EM9" firstAttribute="leading" secondItem="sBC-sN-cfP" secondAttribute="trailing" constant="-93" id="7TF-mf-ypl"/>
-                            <constraint firstItem="cRl-jS-rGq" firstAttribute="top" secondItem="vqj-xc-EM9" secondAttribute="bottom" constant="-93" id="Arv-Ov-X1F"/>
                             <constraint firstItem="AU7-JC-mTP" firstAttribute="top" secondItem="vqj-xc-EM9" secondAttribute="bottom" constant="13" id="CJR-i4-yiX"/>
                             <constraint firstItem="ZIM-5v-aYF" firstAttribute="leading" secondItem="sBC-sN-cfP" secondAttribute="trailing" constant="14" id="CKH-hK-m1Z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bzy-jm-td8" secondAttribute="trailing" constant="-16" id="CZy-um-dqF"/>
@@ -860,7 +849,6 @@
                             <constraint firstItem="Fde-R6-bnx" firstAttribute="leading" secondItem="z3d-Xo-Yh0" secondAttribute="leadingMargin" constant="-16" id="bqr-8t-dE1"/>
                             <constraint firstItem="Bzy-jm-td8" firstAttribute="top" secondItem="MME-ht-PKl" secondAttribute="bottom" id="e32-uV-vSy"/>
                             <constraint firstItem="Fde-R6-bnx" firstAttribute="leading" secondItem="AU7-JC-mTP" secondAttribute="trailing" constant="-65" id="gg8-ju-Kvn"/>
-                            <constraint firstItem="cRl-jS-rGq" firstAttribute="leading" secondItem="ZIM-5v-aYF" secondAttribute="trailing" constant="27.5" id="lKp-qb-Gmt"/>
                             <constraint firstItem="sBC-sN-cfP" firstAttribute="top" secondItem="vqj-xc-EM9" secondAttribute="bottom" constant="-139" id="sgs-uq-KEJ"/>
                             <constraint firstItem="AU7-JC-mTP" firstAttribute="leading" secondItem="z3d-Xo-Yh0" secondAttribute="leadingMargin" constant="-3" id="tzy-fw-6n0"/>
                             <constraint firstItem="sBC-sN-cfP" firstAttribute="leading" secondItem="z3d-Xo-Yh0" secondAttribute="leadingMargin" constant="-3" id="wec-Ie-con"/>
@@ -885,7 +873,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="backImage" destination="Bzy-jm-td8" id="KHx-WS-gM2"/>
-                        <outlet property="favorite" destination="cRl-jS-rGq" id="pWs-1t-fDc"/>
                         <outlet property="frontImage" destination="sBC-sN-cfP" id="8Kl-ee-UmY"/>
                         <outlet property="rating" destination="CoB-qY-KTb" id="GJ6-lG-jQO"/>
                         <outlet property="ratingLabel" destination="gJ6-Bw-B2y" id="dC6-3g-iXI"/>

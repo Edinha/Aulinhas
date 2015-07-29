@@ -21,7 +21,6 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var rating: FloatRatingView!
-    @IBOutlet private weak var favorite: UIButton!
     
     let http = TraktHTTPClient()
     private var episodes:[TraktModels.Episode] = []
@@ -36,10 +35,6 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         
         if let s = self.season {
-            
-            if manager.isFavorited(s.identifiers!.trakt) {
-                self.favorite.imageView?.image = UIImage(named: "like-heart-on")
-            }
             
             if let i = s.thumbImageURL {
                 self.backImage.kf_setImageWithURL(i)
@@ -100,21 +95,6 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
             
             presentViewController(alertController, animated: true, completion: nil) */
             
-    }
-    
-    
-    @IBAction func addToFavorites(sender: AnyObject) {
-        //let img = UIImage(named: "like-heart")
-        let id = self.season?.identifiers?.trakt
-        
-        if manager.isFavorited(id!) {
-            manager.addIdentifier(id!)
-            self.favorite.imageView?.image = UIImage(named: "like-heart-on")
-        } else {
-            manager.removeIdentifier(id!)
-            self.favorite.imageView?.image = UIImage(named: "like-heart")
-        }
-
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
