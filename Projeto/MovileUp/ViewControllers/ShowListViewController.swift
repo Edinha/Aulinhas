@@ -23,10 +23,14 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.clipsToBounds = true
-        //self.navigationController?.navigationBar.backgroundColor = UIColor(red: 244/255, green: 128/255, blue: 55/255, alpha: 1)
-        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        //self.navigationController?.navigationBar.shadowImage = UIImage()
+        if let navBar = self.navigationController?.navigationBar {
+            navBar.backgroundColor = UIColor(red: 244/255, green: 128/255, blue: 55/255, alpha: 1)
+            navBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            navBar.shadowImage = UIImage()
+            navBar.tintColor = UIColor(red: 244/255, green: 128/255, blue: 55/255, alpha: 1)
+            navBar.translucent = false
+            navBar.barStyle = .Black
+        }
         
         http.getPopularShows({ [weak self] resultado in
             if let s = resultado.value {

@@ -26,12 +26,6 @@ class SeasonListViewController : UIViewController, UITableViewDelegate, UITableV
             http.getSeasons(slug , completion: { [weak self] resultado in
                 if let value = resultado.value {
                     self?.seasons = value
-
-                    //for var indice = 0; indice < self?.seasons.count; indice++ {
-                    //    if self?.seasons[indice].number == 0 {
-                    //        self?.seasons.removeAtIndex(indice)
-                    //    }
-                   // }
                     
                     sort(&self!.seasons, { a, b in
                         return a.number > b.number
