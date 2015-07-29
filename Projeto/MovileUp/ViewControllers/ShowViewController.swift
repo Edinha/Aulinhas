@@ -24,6 +24,13 @@ class ShowViewController : UIViewController {
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var rating: FloatRatingView!
     
+    @IBOutlet private weak var broadcasting: UILabel!
+    @IBOutlet private weak var status: UILabel!
+    @IBOutlet private weak var seasonsCount: UILabel!
+    @IBOutlet private weak var started: UILabel!
+    @IBOutlet private weak var country: UILabel!
+    @IBOutlet private weak var homepage: UILabel!
+    
     var id: Int? = nil
     var show: TraktModels.Show? = nil
     var manager = FavoriteManager()
@@ -54,6 +61,16 @@ class ShowViewController : UIViewController {
             if manager.isFavorited(id!) {
                 favorites.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
             }
+            
+            broadcasting.text = ""
+            status.text = s.status?.rawValue
+            seasonsCount.text = ""
+            
+            let date = NSDateFormatter()
+            date.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
+            started.text = date.stringFromDate(s.firstAired!)
+            country.text = s.country!
+            homepage.text = "\(s.homepageURL)"
         }
     }
 
