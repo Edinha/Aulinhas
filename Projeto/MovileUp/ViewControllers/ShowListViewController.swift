@@ -23,6 +23,11 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.clipsToBounds = true
+        //self.navigationController?.navigationBar.backgroundColor = UIColor(red: 244/255, green: 128/255, blue: 55/255, alpha: 1)
+        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        //self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         http.getPopularShows({ [weak self] resultado in
             if let s = resultado.value {
                 self?.shows = s
@@ -31,7 +36,8 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
             }
         })
         
-        //self.modeShow = self.shows
+        let notification = NSNotificationCenter.defaultCenter()
+        notification.addObserver(self, selector: "updateFavorites", name: FavoriteManager.favoritesChanged , object: nil)
     }
     
     func numberOfSectionsInCollectionView(tableView: UICollectionView) -> Int { return 1}
@@ -95,7 +101,11 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
     func updateFavorites() {
         let manager = FavoriteManager()
         
-        modeShow = shows.filter { manager.favoritesIdentifiers.contains($0.identifiers.trakt) }
+        if listShows.selectedSegmentIndex == 1{
+            modeShow = shows.filter { manager.favoritesIdentifiers.contains($0.identifiers.trakt) }
+        }
+        
+        collectionView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -120,5 +130,10 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
                     vc.title = s.title
             }
         }
+    }
+    
+    deinit {
+        let notification = NSNotificationCenter.defaultCenter()
+        notification.removeObserver(self, forKeyPath: FavoriteManager.favoritesChanged)
     }
 }

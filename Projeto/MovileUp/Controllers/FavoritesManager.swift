@@ -10,6 +10,8 @@ import Foundation
 
 class FavoriteManager {
     
+    static let favoritesChanged = "com.edinha.changed"
+    
     var favoritesIdentifiers: Set<Int> = {
         let pers = NSUserDefaults.standardUserDefaults()
         

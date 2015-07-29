@@ -68,6 +68,9 @@ class ShowViewController : UIViewController {
             favorites.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
             //print("favorited\n")
         }
+        
+        let notification = NSNotificationCenter.defaultCenter()
+        notification.postNotificationName(FavoriteManager.favoritesChanged, object: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
