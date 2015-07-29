@@ -24,12 +24,11 @@ class ShowViewController : UIViewController {
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var rating: FloatRatingView!
     
-    @IBOutlet private weak var broadcasting: UILabel!
     @IBOutlet private weak var status: UILabel!
-    @IBOutlet private weak var seasonsCount: UILabel!
     @IBOutlet private weak var started: UILabel!
     @IBOutlet private weak var country: UILabel!
-    @IBOutlet private weak var homepage: UILabel!
+    @IBOutlet private weak var network: UILabel!
+    @IBOutlet private weak var airedEpisodes: UILabel!
     
     var id: Int? = nil
     var show: TraktModels.Show? = nil
@@ -62,28 +61,35 @@ class ShowViewController : UIViewController {
                 favorites.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
             }
             
-            broadcasting.text = ""
+            network.text = s.network!
             status.text = s.status?.rawValue
-            seasonsCount.text = ""
+            airedEpisodes.text = String(s.airedEpisodes!)
             
             let date = NSDateFormatter()
             date.dateFormat = "EEE, d MM yyyy HH:mm::ss Z"
             started.text = date.stringFromDate(s.firstAired!)
             country.text = s.country!
-            homepage.text = "\(s.homepageURL)"
         }
     }
 
     @IBAction func addToFavorites(sender: AnyObject) {
         
+        let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
+        pulseAnimation.duration = 0.4
+        pulseAnimation.fromValue = 1
+        pulseAnimation.toValue = manager.isFavorited(id!) ? 1.2 : 0.8
+        pulseAnimation.autoreverses = true
+        pulseAnimation.repeatCount = 1
+        let function = kCAMediaTimingFunctionEaseInEaseOut
+        pulseAnimation.timingFunction = CAMediaTimingFunction(name: function)
+        sender.layer.addAnimation(pulseAnimation, forKey: nil)
+        
         if manager.isFavorited(id!) {
             manager.removeIdentifier(id!)
             favorites.setImage(UIImage(named: "like-heart"), forState: UIControlState.Normal)
-            //print("unfavorited\n")
         } else {
             manager.addIdentifier(id!)
             favorites.setImage(UIImage(named: "like-heart-on"), forState: UIControlState.Normal)
-            //print("favorited\n")
         }
         
         let notification = NSNotificationCenter.defaultCenter()
