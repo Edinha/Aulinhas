@@ -112,4 +112,8 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
             }
         }
     }
+    
+    deinit {
+        print("\(self.dynamicType) deinit\n")
+    }
 }

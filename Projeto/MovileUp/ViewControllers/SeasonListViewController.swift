@@ -65,9 +65,9 @@ class SeasonListViewController : UIViewController, UITableViewDelegate, UITableV
                     vc.season = s
             }
         }
-        
-        
     }
 
-    
+    deinit {
+        print("\(self.dynamicType) deinit\n")
+    }
 }

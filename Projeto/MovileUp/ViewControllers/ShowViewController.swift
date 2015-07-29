@@ -118,4 +118,8 @@ class ShowViewController : UIViewController {
             
         }
     }
+    
+    deinit {
+        print("\(self.dynamicType) deinit\n")
+    }
 }

@@ -125,6 +125,19 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
         
         if listShows.selectedSegmentIndex == 1{
             modeShow = shows.filter { manager.favoritesIdentifiers.contains($0.identifiers.trakt) }
+            let s = Set<Int>(modeShow.map {$0.identifiers.trakt})
+            
+            for f in manager.favoritesIdentifiers {
+                if s.contains(f) == false {
+                    http.getShow(String(f), completion: { [weak self] resultado in
+                        if let value = resultado.value {
+                            self?.modeShow.append(value)
+                            self?.collectionView.reloadData()
+                        }
+                    })
+                }
+            }
+
         }
         
         collectionView.reloadData()
