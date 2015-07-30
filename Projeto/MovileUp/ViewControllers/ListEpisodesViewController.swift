@@ -49,7 +49,6 @@ class ListEpisodesViewController : UIViewController, UITableViewDelegate, UITabl
         }
         
         
-        
         if let id = self.id, n = self.number {
             self.title    = "Season " + String(n)
             self.year.text =  "Season " + String(n)

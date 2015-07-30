@@ -42,7 +42,7 @@ class CurrentSeasonViewController : UIViewController, UITableViewDelegate, UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let iden = Reusable.CurrentSeason.identifier!
+        let iden = "CurrentSeason"  //Reusable.CurrentSeason.identifier!
         let cell = tableView.dequeueReusableCellWithIdentifier(iden, forIndexPath: indexPath) as! CurrentSeasonCell
         
         cell.loadSeason(seasons[indexPath.row])

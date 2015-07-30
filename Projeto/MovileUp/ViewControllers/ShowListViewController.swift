@@ -156,6 +156,18 @@ class ShowListViewController : UIViewController,  UICollectionViewDelegate, UICo
             }
         }
         
+        if segue.identifier == "show_scroll" {
+            if let cell = sender as? ShowCell,
+                indexPath = collectionView.indexPathForCell(cell){
+                    
+                    let s = modeShow[indexPath.item]
+                    let vc = segue.destinationViewController as! ShowScrollViewController
+                    vc.id = s.identifiers.trakt
+                    vc.show = s
+                    
+            }
+        }
+        
         if segue.identifier == "show_seasons" {
             if let cell = sender as? ShowCell,
                 indexPath = collectionView.indexPathForCell(cell){

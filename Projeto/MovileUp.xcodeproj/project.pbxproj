@@ -25,6 +25,13 @@
 		81B423B11B5833B600A2D896 /* episodeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B423B01B5833B600A2D896 /* episodeTableCell.swift */; };
 		81B423B31B58376F00A2D896 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B423B21B58376F00A2D896 /* Episode.swift */; };
 		81B423B51B58387500A2D896 /* EpisodesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B423B41B58387500A2D896 /* EpisodesTableView.swift */; };
+		81BAAFDA1B6A8E35003BC8E0 /* ShowScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAAFD91B6A8E35003BC8E0 /* ShowScrollViewController.swift */; };
+		81BAAFDC1B6A924C003BC8E0 /* SeasonListScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAAFDB1B6A924C003BC8E0 /* SeasonListScrollViewController.swift */; };
+		81BAAFDE1B6AC0C2003BC8E0 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BAAFDD1B6AC0C2003BC8E0 /* SplashScreen.xib */; };
+		81BAAFE31B6AC176003BC8E0 /* iphone4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81BAAFDF1B6AC176003BC8E0 /* iphone4@2x.png */; };
+		81BAAFE41B6AC176003BC8E0 /* iphone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81BAAFE01B6AC176003BC8E0 /* iphone5@2x.png */; };
+		81BAAFE51B6AC176003BC8E0 /* iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81BAAFE11B6AC176003BC8E0 /* iphone6@2x.png */; };
+		81BAAFE61B6AC176003BC8E0 /* iphone6plus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81BAAFE21B6AC176003BC8E0 /* iphone6plus@3x.png */; };
 		81BAE8761B56DA7800290D72 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 81BAE8781B56DA7800290D72 /* Main.storyboard */; };
 		81BAE87A1B56E90100290D72 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAE8791B56E90100290D72 /* CustomNavigationController.swift */; };
 		81BD63E51B62A67B00B26CE3 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD63E41B62A67B00B26CE3 /* ShowViewController.swift */; };
@@ -69,6 +76,13 @@
 		81B423B01B5833B600A2D896 /* episodeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = episodeTableCell.swift; sourceTree = "<group>"; };
 		81B423B21B58376F00A2D896 /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		81B423B41B58387500A2D896 /* EpisodesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodesTableView.swift; sourceTree = "<group>"; };
+		81BAAFD91B6A8E35003BC8E0 /* ShowScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowScrollViewController.swift; sourceTree = "<group>"; };
+		81BAAFDB1B6A924C003BC8E0 /* SeasonListScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonListScrollViewController.swift; sourceTree = "<group>"; };
+		81BAAFDD1B6AC0C2003BC8E0 /* SplashScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreen.xib; sourceTree = "<group>"; };
+		81BAAFDF1B6AC176003BC8E0 /* iphone4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone4@2x.png"; path = "../../../Downloads/movile-up-master/img/splash/iphone4@2x.png"; sourceTree = "<group>"; };
+		81BAAFE01B6AC176003BC8E0 /* iphone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone5@2x.png"; path = "../../../Downloads/movile-up-master/img/splash/iphone5@2x.png"; sourceTree = "<group>"; };
+		81BAAFE11B6AC176003BC8E0 /* iphone6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone6@2x.png"; path = "../../../Downloads/movile-up-master/img/splash/iphone6@2x.png"; sourceTree = "<group>"; };
+		81BAAFE21B6AC176003BC8E0 /* iphone6plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone6plus@3x.png"; path = "../../../Downloads/movile-up-master/img/splash/iphone6plus@3x.png"; sourceTree = "<group>"; };
 		81BAE8771B56DA7800290D72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81BAE8791B56E90100290D72 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		81BD63E41B62A67B00B26CE3 /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +121,10 @@
 			isa = PBXGroup;
 			children = (
 				816C982D1B5D770C006A10CE /* entry.json */,
+				81BAAFDF1B6AC176003BC8E0 /* iphone4@2x.png */,
+				81BAAFE01B6AC176003BC8E0 /* iphone5@2x.png */,
+				81BAAFE11B6AC176003BC8E0 /* iphone6@2x.png */,
+				81BAAFE21B6AC176003BC8E0 /* iphone6plus@3x.png */,
 				CBC3EC56EBB183BCC7AE9536 /* Images.xcassets */,
 				7ABCA0BE40E1D2497B9E0B4D /* Storyboards */,
 				E994827F2DAA23E56E2CF491 /* Nibs */,
@@ -187,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				81BAE8781B56DA7800290D72 /* Main.storyboard */,
+				81BAAFDD1B6AC0C2003BC8E0 /* SplashScreen.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -250,6 +269,8 @@
 				814EFD741B598D1B00E00C76 /* ShowListViewController.swift */,
 				81BD63E41B62A67B00B26CE3 /* ShowViewController.swift */,
 				81BD63E61B62AFFA00B26CE3 /* CurrentSeasonViewController.swift */,
+				81BAAFD91B6A8E35003BC8E0 /* ShowScrollViewController.swift */,
+				81BAAFDB1B6A924C003BC8E0 /* SeasonListScrollViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -380,6 +401,11 @@
 			files = (
 				816C982E1B5D770D006A10CE /* entry.json in Resources */,
 				8AE9B9526166F39E57138D6B /* Images.xcassets in Resources */,
+				81BAAFE51B6AC176003BC8E0 /* iphone6@2x.png in Resources */,
+				81BAAFE61B6AC176003BC8E0 /* iphone6plus@3x.png in Resources */,
+				81BAAFE31B6AC176003BC8E0 /* iphone4@2x.png in Resources */,
+				81BAAFDE1B6AC0C2003BC8E0 /* SplashScreen.xib in Resources */,
+				81BAAFE41B6AC176003BC8E0 /* iphone5@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,8 +576,10 @@
 				81BD63E91B62CD1700B26CE3 /* CurrentSeasonCell.swift in Sources */,
 				81B423AD1B5828A400A2D896 /* EpisodeViewController.swift in Sources */,
 				81B423AF1B582F5F00A2D896 /* ListEpisodesViewController.swift in Sources */,
+				81BAAFDA1B6A8E35003BC8E0 /* ShowScrollViewController.swift in Sources */,
 				81B423B31B58376F00A2D896 /* Episode.swift in Sources */,
 				814EFD731B59767200E00C76 /* SeasonListViewController.swift in Sources */,
+				81BAAFDC1B6A924C003BC8E0 /* SeasonListScrollViewController.swift in Sources */,
 				1A1BE55D76C5EDA9CCCD8483 /* LaunchScreen.xib in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

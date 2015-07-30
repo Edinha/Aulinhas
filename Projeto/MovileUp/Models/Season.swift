@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Edinha's. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 //struct Season {
     
